@@ -2,7 +2,7 @@
 title: "180815-1028-mdt_interview-flashcards.Rmd"
 ---
 
-Related private notes: _180815-1101-mdt_private_interview-flashcards.Rmd_
+Related private notes: _180815-1101-mdt_
 
 # Status:
 
@@ -12,6 +12,7 @@ Related private notes: _180815-1101-mdt_private_interview-flashcards.Rmd_
   - Working system in place for YAML-based Anki flashcard definitions.
   - Workflow established for flashcard management.
   - Began generating coding-interview drills.
+
 
 # Thoughts:
 
@@ -33,6 +34,7 @@ Related private notes: _180815-1101-mdt_private_interview-flashcards.Rmd_
     - Docker may be a bit more flexible, might work well for generating the images, which can then be imported for use with Singularity.
   - Currently **low-priority**.
 
+
 # Plans:
 
 - Generate flashcard fronts for all AFI questions. Leave most backs "To-do".
@@ -42,8 +44,31 @@ Related private notes: _180815-1101-mdt_private_interview-flashcards.Rmd_
 - Begin drills.
 - Plan next steps. See _180813-1221-mdt_interview-flashcards.Rmd_ (in private notes) for related brainstorms.
 
+
+# Notes:
+
+- AnkiConnect repo: https://github.com/FooSoft/anki-connect
+- Advanced Python:
+  - Scipy lecture notes, Advanced Python Constructs: https://www.scipy-lectures.org/advanced/advanced_python/index.html
+  - Python Course, Advanced Topics with Python: https://www.python-course.eu/advanced_topics.php
+- How to build a rails-JSON API:
+  - Will Van Wart, Oct 8, 2016: https://medium.com/@willvanwart/how-to-build-a-rails-json-api-fb199429760e
+- Data science:
+  - Topcoder, Data Science Tutorials: https://www.topcoder.com/community/data-science/data-science-tutorials/
+  - Data Science Lab, Projects: https://sites.google.com/site/datascienceslab/projects
+- Steven Skiena, Algorist:
+  - http://www.algorist.com/
+  - http://algorist.com/algorist.html
+  - Solutions, _The Algorithm Design Manual_:
+    -  http://www.algorist.com/algowiki/index.php/Introduction-TADM2E
+  - Solutions, _The Data Science Design Manual_:
+    - http://data-manual.com/datawiki/index.php/The_Data_Science_Design_Manual
+
+
 # Log:
 
 ##### 1028: Status/thoughts/plans.
 
-##### 1111: AFI-question flashcard fronts.
+##### 1111: AFI-question flashcard fronts, chapter 1.
+
+##### 1247: Completed chapter 1. Break.
