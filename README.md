@@ -23,7 +23,8 @@ My notebook. Publicly-viewable, but not very interesting to anyone other than me
         - Virtualenv with SCIF.
     - Learn more about how Nix/NixOS work. Become more comfortable. Transition to Nix-based containers.
 - Low priorities:
-  - ...
+  - Explore TopCoder: https://www.topcoder.com/
+  - Explort NumFOCUS: https://numfocus.org/
 
 # Brainstorming:
 
