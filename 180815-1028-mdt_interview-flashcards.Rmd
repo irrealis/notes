@@ -78,3 +78,5 @@ Related private notes: _180815-1101-mdt_
 ##### 1518: Completed chapter 2. Break.
 
 ##### 1553: Resume. AFI chapter 3.
+
+##### 1722: Completed AFI chapter 3, section _Dynamic Programming_. Stopping.
