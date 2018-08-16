@@ -20,6 +20,9 @@ Related private notes: _180816-1242-mdt_
     - Rewrite parser.
     - Error detection in parser.
 
+- Questions:
+  - **What is a _union-find_ data structure?**
+
 
 # Plans:
 
@@ -42,3 +45,5 @@ Related private notes: _180816-1242-mdt_
 ##### 1304: Per-note flashcard overrides: parsers.
 
 ##### 1353: Parser, flashcards rewritten. Resume AFI c3.
+
+##### 1522: Completed chapter 3. Break.
