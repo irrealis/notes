@@ -47,3 +47,5 @@ Related private notes: _180816-1242-mdt_
 ##### 1353: Parser, flashcards rewritten. Resume AFI c3.
 
 ##### 1522: Completed chapter 3. Break.
+
+##### 1537: Resume. AFI c4.
