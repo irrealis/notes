@@ -39,3 +39,10 @@ My notebook. Publicly-viewable, but not very interesting to anyone other than me
 # Questions:
 
 - **What is a _union-find_ data structure?**
+- **In what ways can graphs be represented?**
+  - Builtin adjacency lists
+  - Builtin adjacency maps
+  - External adjacency lists
+  - External adjacency maps
+  - Adjacency matrix
+  - ... ?
