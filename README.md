@@ -34,3 +34,8 @@ My notebook. Publicly-viewable, but not very interesting to anyone other than me
     - Use a shell script to do this from the host.
   - Revise project structure ideas accordingly,
     - Project structure should now more closely resemble a SCIF app.
+
+
+# Questions:
+
+- **What is a _union-find_ data structure?**
