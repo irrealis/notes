@@ -40,3 +40,5 @@ Related private notes: _180816-1242-mdt_
 ##### 1242: Start; status/thoughts/plans.
 
 ##### 1304: Per-note flashcard overrides: parsers.
+
+##### 1353: Parser, flashcards rewritten. Resume AFI c3.
