@@ -42,3 +42,5 @@ Related private notes: _180820-1129-mdt_
 ##### 1149: Commit recent work to _add_yaml_notes_.
 
 ##### 1159: Revise flashcards adding default fields.
+
+##### 1216: Resume AFI chapter 4.
