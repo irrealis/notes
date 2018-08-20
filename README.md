@@ -6,6 +6,7 @@ My notebook. Publicly-viewable, but not very interesting to anyone other than me
 
 - Studies:
   - Completed AFI flashcard fronts through c3, _Dynamic Programming_.
+  - Began AFI flashcard fronts for c4, _Algorithms on Graphs_.
   - Anki flashcards and parser rewritten to allow overrides.
 
 # To do:
