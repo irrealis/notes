@@ -20,7 +20,7 @@ Related private notes: _180820-1129-mdt_
 - Stop at 15:30 to run errands.
 
 
-# Thoughts:
+# To do:
 
 - Studies:
   - Once I'm done with flashcard fronts for AFI:
@@ -36,6 +36,12 @@ Related private notes: _180820-1129-mdt_
     - Math drills.
     - Personal tasks.
 
+- Verify the four essential graph problems that, according to AFI, can be solved in polynomial time.
+
+  --- Aziz and Prakash; _Algorithms for Interviews_; version 1.0.0 (September 1, 2010); p 47.
+
+  If true, find several versions of the problems from various texts, and make them into drills.
+
 
 ##### 1129: Start; status/brainstorms/plans.
 
@@ -44,3 +50,5 @@ Related private notes: _180820-1129-mdt_
 ##### 1159: Revise flashcards adding default fields.
 
 ##### 1216: Resume AFI chapter 4.
+
+##### 1459: Pausing to run errands.
