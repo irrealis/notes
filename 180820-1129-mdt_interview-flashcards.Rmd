@@ -4,4 +4,39 @@ title: "180820-1129-mdt_interview-flashcards.Rmd"
 
 Related private notes: _180820-1129-mdt_
 
+# Status:
+
+- _180816-1242-mdt_inteview-flashcards.Rmd_:
+  - Modified _add_yaml_notes.py_ to allow per-note overrides of default parameters.
+    - For example, most of my recent interview flashcards are coding exercises, but one posed a general question about sorting algorithms, so needed to be of a different type.
+    - I can now include both questions in the same file, generally using a "coding" flashcard type, but using a "typesetting" type for the exception mentioned above.
+  - Completed flashcard questions for AFI chapter 3.
+  - Began flashcard questions for AFI chapter 4.
+
+
+# Plans:
+
+- Spend about three hours on interview flashcards.
+- Stop at 15:30 to run errands.
+
+
+# Thoughts:
+
+- Studies:
+  - Once I'm done with flashcard fronts for AFI:
+    - Write flashcards for my recent general work in data structures and algorithms. Fronts and backs.
+    - Drill on recent general work in data structures and algorithms.
+    - Switch back to AFI flashcards, filling in cards whose questions I've recently solved.
+    - Then begin working through questions I haven't yet solved.
+    - Alternate with drills on solved AFI flashcards.
+      - Try doing some of these at the whiteboard while recording with camera.
+      - Playback and analyze.
+  - I may want to periodically switch to other tasks:
+    - Math flashcards.
+    - Math drills.
+    - Personal tasks.
+
+
 ##### 1129: Start; status/brainstorms/plans.
+
+##### 1149: Commit recent work to _add_yaml_notes_.
