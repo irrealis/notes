@@ -5,9 +5,8 @@ My notebook. Publicly-viewable, but not very interesting to anyone other than me
 ## Status:
 
 - Studies:
-  - Completed AFI flashcard fronts through c3, _Dynamic Programming_.
-  - Began AFI flashcard fronts for c4, _Algorithms on Graphs_.
-  - Anki flashcards and parser rewritten to allow overrides.
+  - Completed AFI flashcard fronts through c4.
+  - Anki flashcards and parser rewritten to allow default fields.
 
 # To do:
 
@@ -27,6 +26,7 @@ My notebook. Publicly-viewable, but not very interesting to anyone other than me
 - Low priorities:
   - Explore TopCoder: https://www.topcoder.com/
   - Explort NumFOCUS: https://numfocus.org/
+
 
 # Brainstorming:
 
