@@ -43,6 +43,8 @@ Related private notes: _180820-1129-mdt_
   If true, find several versions of the problems from various texts, and make them into drills.
 
 
+##### 0645-ish: Personal errands.
+
 ##### 1129: Start; status/brainstorms/plans.
 
 ##### 1149: Commit recent work to _add_yaml_notes_.
