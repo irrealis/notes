@@ -24,3 +24,5 @@ title: "180822-1030-mdt_interview-flashcards.Rmd"
 ##### 1100: Setup/start AFI c6 flashcards.
 
 ##### 1223: Completed chapter 6. Break.
+
+##### 1229: Setup/start AFI c7.
