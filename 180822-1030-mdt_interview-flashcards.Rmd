@@ -2,6 +2,8 @@
 title: "180822-1030-mdt_interview-flashcards.Rmd"
 ---
 
+Related private notes: _180822-1030-mdt_
+
 # Status:
 
 - _180821-1417-mdt_interview-flashcards_AFI.Rmd_:
@@ -34,3 +36,5 @@ title: "180822-1030-mdt_interview-flashcards.Rmd"
 ##### 1447: Completed chapter 8. Break.
 
 ##### 1512: Setup/start AFI chapter 9 fronts.
+
+##### 1708: Completed chapter 9 fronts. Stopping.
