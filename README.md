@@ -5,8 +5,8 @@ My notebook. Publicly-viewable, but not very interesting to anyone other than me
 ## Status:
 
 - Studies:
-  - Completed AFI flashcard fronts through c4.
-  - Anki flashcards and parser rewritten to allow default fields.
+  - Completed AFI flashcard fronts through c5.
+
 
 # To do:
 
