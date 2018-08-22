@@ -32,3 +32,5 @@ title: "180822-1030-mdt_interview-flashcards.Rmd"
 ##### 1342: Setup/start AFI chapter 8 fronts.
 
 ##### 1447: Completed chapter 8. Break.
+
+##### 1512: Setup/start AFI chapter 9 fronts.
