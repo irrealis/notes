@@ -21,8 +21,10 @@ title: "180822-1030-mdt_interview-flashcards.Rmd"
 
 ##### 1030: Start; status/thoughts/plans.
 
-##### 1100: Setup/start AFI c6 flashcards.
+##### 1100: Setup/start AFI chapter 6 flashcards.
 
 ##### 1223: Completed chapter 6. Break.
 
-##### 1229: Setup/start AFI c7.
+##### 1229: Setup/start AFI chapter 7.
+
+##### 1335: Completed chapter 7. Break.
