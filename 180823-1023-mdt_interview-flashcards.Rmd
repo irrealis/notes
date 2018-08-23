@@ -30,3 +30,5 @@ title: "180823-1023-mdt_interview-flashcards.Rmd"
 ##### 1108: Setup/start AFI chapter 10 flashcards.
 
 ##### 1447: Completed chapter 10 fronts. Break.
+
+##### 1504: Setup/start AFI chapter 11 fronts.
