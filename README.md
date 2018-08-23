@@ -5,7 +5,7 @@ My notebook. Publicly-viewable, but not very interesting to anyone other than me
 ## Status:
 
 - Studies:
-  - Completed AFI flashcard fronts through c5.
+  - Completed AFI flashcard fronts through c9.
 
 
 # To do:
