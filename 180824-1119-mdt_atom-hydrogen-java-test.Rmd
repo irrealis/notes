@@ -2,25 +2,6 @@
 title: "180824-1119-mdt_atom-hydrogen-java-test.Rmd"
 ---
 
-- Erm...
-  ```{python }
-  print("hi")
-  ```
-
-  ```{r }
-  print("hi")
-  vector("logical")
-  ```
-
-  ```{python }
-  %%script groovy -e "new GroovyShell().evaluate(System.in.text)"
-  println("hello")
-  ```
-
-  ```{java }
-  "Hi"
-  ```
-
 Got Java kernel to work in Atom with Hydrogen and PWeave.
 
 - Using IJava:
