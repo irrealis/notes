@@ -27,3 +27,5 @@ title: "180824-0833-mdt_interview-flashcards_backs.Rmd"
 ##### 0833: Start. Status/thoughts/plans.
 
 ##### 0943: Completed personal errands. Switching to studies; flashcards for recently-studies algorithms and data structures.
+
+##### 1341: Flashcards for selection/insertion/heap/merge sorts with Python/Java backs. Break
