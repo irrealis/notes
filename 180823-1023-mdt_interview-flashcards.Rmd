@@ -2,6 +2,8 @@
 title: "180823-1023-mdt_interview-flashcards.Rmd"
 ---
 
+Related private notes: _180823-1023-mdt_
+
 # Status:
 
 - _180822-1030-mdt_interview-flashcards.Rmd_
