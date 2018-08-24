@@ -1,3 +1,6 @@
+# Top-level log files:
+/*.log
+
 # History files
 .Rhistory
 .Rapp.history
