@@ -5,7 +5,8 @@ My notebook. Publicly-viewable, but not very interesting to anyone other than me
 ## Status:
 
 - Studies:
-  - Completed AFI flashcard fronts through c9.
+  - Completed AFI flashcard fronts.
+  - Starting flashcards for recently-studied data structures and algorithms.
 
 
 # To do:
@@ -49,6 +50,8 @@ My notebook. Publicly-viewable, but not very interesting to anyone other than me
 
 # Brainstorming:
 
+- **No rote memorization.**
+  - The flashcard goal: pose problem whose solutions require that I **think through the steps of algorithms and proofs.**
 - Possible SCIF approach:
   - For an app in development, bind code and data dirs from the host to the app's code and data dirs in the container.
     - Use a shell script to do this from the host.
