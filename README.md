@@ -12,6 +12,25 @@ My notebook. Publicly-viewable, but not very interesting to anyone other than me
 
 - Top priorities:
     - Study for coding interviews. Setup related drills.
+      - I'll need to review basics of each language, and make flashcards for these.
+        - Basic types
+        - Representations of basic types in memory
+        - Representations of composite in memory
+        - Memory management, e.g., garbage collection approaches
+        - Call stack layout
+        - Ways for memory leaks to occur
+        - Program representation in memory
+        - Commonly-used libraries
+          - System
+          - Third-party
+      - Debugging and testing:
+        - Techniques for distributed programs
+        - Challenges and approaches to debugging/testing concurrent code
+        - Tools:
+          - Debuggers
+          - Profilers
+          - Leak detection and analysis
+          - Testing frameworks
     - Long-term planning.
 - Medium priorities:
     - Resume data-science studies.
@@ -59,8 +78,20 @@ My notebook. Publicly-viewable, but not very interesting to anyone other than me
   - Adjacency matrix
   - ... ?
 - **What is the formal definition of _NP-complete?_ _NP-hard?_ _NP_?**
+- What is the _simplex algorithm for linear programming_?
+- What is the _AKS primality-checking algorithm_?
+- What is the _KMP string-matching algorithm_?
 
 
 # Wishlist:
 
 - Read _R. Karp; 1972; "Reducibility Among Combinatorial Problems"_.
+- _Kernighan and Ritchie; "The C Programming Language"_
+- _Sestoft; "Java Precisely"_
+- _Bloch; "Effective Java"_
+- _Meyer; "Effective C++"_
+- _Gamma et al.; "Design Patterns: Elements of Reusable Object-Oriented Software"_
+- _Scott; "Programming Languages Pragmatics"_
+- _Tanenbaum; "Modern Operating Systems"_
+- _Zeller and Krinke; "Essential Open Source Toolset"_
+- _Natarajan; "Linux 101 Hacks"_
