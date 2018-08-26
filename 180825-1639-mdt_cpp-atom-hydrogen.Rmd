@@ -39,6 +39,10 @@ print("Hi.")
 console.log("Hi.");
 ```
 
+```ruby
+puts "Hi."
+```
+
 This is very twitchy. To make it work:
 - Build Cling.
   - https://github.com/root-project/cling
