@@ -14,7 +14,6 @@ Turns out it is possible to interpret C++ in markdown code fences via Hydrogen i
 }
 ```
 
-
 ```{c++ }
 #include <iostream>
 std::cout << "Hi." << std::endl;
@@ -34,6 +33,10 @@ print("Hi.")
 
 ```{r }
 print("Hi.")
+```
+
+```{javascript }
+console.log("Hi.");
 ```
 
 This is very twitchy. To make it work:
