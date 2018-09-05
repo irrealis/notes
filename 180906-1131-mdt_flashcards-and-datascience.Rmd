@@ -81,3 +81,81 @@ Several days since switching to personal tasks. Today, continuing work on person
 ##### 1131: Start; status/thoughts/plans.
 
 ##### 1152: Work on updating Anki flashcards.
+
+
+```{python }
+import sys
+
+print("Python version: {}".format(sys.version))
+print("Python executable: {}".format(sys.executable))
+```
+
+- Notes from _180826-1317-mdt_update-anki-notes.Rmd_:
+
+```{python }
+%pushd /mnt/Work/Repos/irrealis/flashcards
+```
+
+```{python }
+import yaml
+```
+
+Stream to representation graph to stream
+```{python }
+import yaml
+nodes = yaml.compose(open("markdown_mathjax_demo.yml"))
+print(nodes)
+print(yaml.serialize(nodes))
+for node in nodes:
+  print(yaml.serialize(node))
+```
+
+```{python }
+x = yaml.compose(open("markdown_mathjax_demo.yml"))
+d = {x.value:v.value for x, v in x.value}
+print(yaml.load(yaml.serialize(d['notes'][0])))
+
+[(k,v) for k,v in x.value if k.value == 'notes']
+[(k,v) for k,v in x.value if k.value == 'defaults']
+
+print(yaml.serialize(yaml.MappingNode(tag='tag:yaml.org,2002:map', value = [(k,v) for k,v in x.value if k.value == 'notes'])))
+
+
+```
+
+
+
+```{python }
+nodes = yaml.compose(open("markdown_mathjax_demo.yml"))
+top_map = {k.value:v.value for k,v in nodes.value}
+note_nodes = top_map['notes']
+note_nodes
+
+note_nodes[0]
+note_nodes[0].value
+note = yaml.load(yaml.serialize(note_nodes[0]))
+print("note: {}".format(note))
+
+if 'id' in note:
+  print("would update")
+else:
+  print("would create")
+  note_id = 1234
+  note_nodes[0].value.insert(
+    0,
+    (
+      yaml.ScalarNode(tag='tag:yaml.org,2002:str', value='id'), yaml.ScalarNode(tag='tag:yaml.org,2002:int', value=str(note_id))
+    )
+  )
+# data = yaml.load(yaml.serialize(nodes))
+# for note in data['notes']:
+#   print(note)
+
+note = yaml.load(yaml.serialize(note_nodes[0]))
+print("note: {}".format(note))
+
+nodes
+```
+
+
+##### 1652: Got basic updates for Anki flashcards. Needs cleanup. Break.
