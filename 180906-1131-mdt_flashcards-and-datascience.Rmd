@@ -1,3 +1,83 @@
 ---
 title: "180906-1131-mdt_flashcards-and-datascience.Rmd"
 ---
+
+# Status:
+
+Several days since switching to personal tasks. Today, continuing work on personal tasks, and also resuming:
+- Work on updating Anki flashcards.
+- Datascience studies.
+
+
+# Thoughts:
+
+- As top priorities, I'm going to split my time three ways, with the goal of:
+  - 1/3 time spent on flashcards.
+  - 1/3 time spent on studies.
+  - 1/3 time spent on personal projects.
+
+- There are a number of skills I'd like to refresh/maintain. This will have to be an ongoing background project.
+  - GPU programming:
+    - OpenCL.
+      - Would like to also work on latest version, with C++ interface.
+    - Would like to bring Vulkan up to speed.
+  - Photogrammetry.
+  - Kinect Fusion.
+  - Artificial life.
+    - Avida platform.
+  - Bioinformatics.
+  - Rails frontend/API; backend logic; Python-mediated backend computation.
+  - Realtime pipeline in C++.
+  - ROS
+  - Qt GUI work.
+  - macOS app work.
+  - Android app work.
+  - iOS app work.
+  - Linear algebra.
+  - Advanced calculus.
+  - Abstract algebra.
+  - Probability.
+  - Languages:
+    - French
+    - Spanish
+    - German
+    - Latin
+
+
+# Plan:
+
+- Flashcards:
+  - From _180827-1444-mdt_:
+    - Use `yaml.load(...)` to obtain Python representation of YAML file.
+      - Use this data, together with existing system in _add_yaml_notes.py_, to check note specs in file.
+        - If any note is missing "`id`" field, we switch modes.
+          - In this case, we'll also now record the returned note ID, and generate a new version of the input file.
+        - Otherwise, we simply use this data to update existing note.
+    - If any note is missing "`id`" field, we switch modes.
+      - Load file a second time, this time using `yaml.compose(...)`, obtaining nodes.
+      - Extract the "`notes`" node.
+        - For each note:
+          - Extract its node.
+          - Convert note node to YAML, then to Python representation.
+          - If ID node is already present:
+            - Based on previous work in _add_yaml_notes.py_, we convert this representation, and send to Anki as update.
+            - This will use defaults from the originally-parsed Python representation for the full file.
+          - If ID node not present:
+            - Based on previous work in _add_yaml_notes.py_, we convert this representation, send to Anki as new note, and record the returned note ID.
+            - This will use defaults from the originally-parsed Python representation for the full file.
+            - Modify the note node, adding to it a new ID node.
+      - Use `yaml.serialize(...)` on nodes, generating new version of file.
+      - Save new version of file.
+
+- Datascience:
+  - Transfer and reorganize datascience flashcards to new YAML system under version control.
+  - To get self back up to speed, review previous courses.
+    - Go over lectures again, taking notes.
+    - Try to move quickly on this. Focus on review.
+
+
+# Log:
+
+##### 1131: Start; status/thoughts/plans.
+
+##### 1152: Work on updating Anki flashcards.
