@@ -1,3 +1,40 @@
 ---
 title: "180906-1052-mdt_flashcards-and-datascience.Rmd"
 ---
+
+# Status:
+
+- Yesterday, _180905-1131-mdt_flashcards-and-datascience.Rmd_:
+  - Got basic flashcard updates working. This allows me to maintain study statistics in Anki for flashcards under version, even as I edit the flashcard specs in YAML files and then send the updates to Anki. This had previously been a stumbling block, when editing a card's specs and then recreating the cards would result in erasing study statistics.
+  - I didn't spend time on data-science studies.
+
+- Today:
+  - Primary focus should be datascience review.
+  - Second focus should be filling in AFI flashcards, and study for coding interviews.
+  - Third focus should be personal projects.
+
+
+# Thoughts:
+
+My priority stack has become a bit too deep. I'm simplifying and moving stuff to lower priority or to wishlists, or discarding.
+
+
+# Plans:
+
+- Data science:
+  - Transfer and reorganize datascience flashcards to new YAML system under version control.
+  - To get self back up to speed, review previous courses.
+    - Go over lectures again, taking notes.
+    - Try to move quickly on this. Focus on review.
+
+- AFI flashcards:
+  - Go over notes, moving answers into recently setup flashcards. Also find roundrobin problem lists, and resume, writing answers into flashcards.
+    - Remember, **no rote memorization.** The goal of these flashcards is to pose problems requiring that I **think through the steps of each algorithm/solution/proof**.
+  - Set aside time each data to drill on problems in completed flashcards.
+
+
+# Log:
+
+##### 1052: Start; status/thoughts/plans.
+
+##### 1140: Start data-science review.
