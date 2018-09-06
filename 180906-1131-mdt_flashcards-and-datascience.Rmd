@@ -25,6 +25,8 @@ Several days since switching to personal tasks. Today, continuing work on person
     - Can't update model name for a card.
       - I can't see any way to update this using the Anki-Connect API.
       - I could probably add this to the API.
+        - I suspect the reason for its absence from API is that the choice of model determines which and how many cards are created from the note. This would mean that changing the model would require regenerating the cards. This in turn would reset stats for all cards.
+        - So the best approach here would be to delete and recreate the note.
 
 - There are a number of skills I'd like to refresh/maintain. This will have to be an ongoing background project.
   - GPU programming:
