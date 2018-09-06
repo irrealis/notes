@@ -185,3 +185,7 @@ The code in _update_yaml_notes.py_ still has these flaws:
 However, it's late, so I'm stopping for the night. Today's main goal achieved for flashcard system.
 
 ##### 1902: Stopping.
+
+##### 2151: Late-night changes: only update note tagset if changed.
+
+Also assigned IDs to all _Code/_ flashcards, and updated _markdown_mathjax_demo.yml_.
