@@ -1,6 +1,12 @@
 # Top-level log files:
 /*.log
 
+# pyenv local Python-version files
+.python-version
+
+# Vim swapfiles
+*.sw?
+
 # History files
 .Rhistory
 .Rapp.history
