@@ -1,54 +1,60 @@
-# notes
+# Notes
 
-My notebook. Publicly-viewable, but not very interesting to anyone other than me.
+This is my public notebook. It's under version control for my own benefit, although anyone is welcome to read it. However, it's generally of use and interest only to me.
+
 
 ## Status:
 
 - Studies:
+  - Working on data-science review.
+  - Working on flashcards for recently-studied data structures and algorithms.
+  - Recently setup code to update existing flashcards from YAML spec files.
   - Completed AFI flashcard fronts.
-  - Starting flashcards for recently-studied data structures and algorithms.
 
 
-# To do:
+## To do:
 
 - Top priorities:
-    - Study for coding interviews. Setup related drills.
-      - I'll need to review basics of each language, and make flashcards for these.
-        - Basic types
-        - Representations of basic types in memory
-        - Representations of composite in memory
-        - Memory management, e.g., garbage collection approaches
-        - Call stack layout
-        - Ways for memory leaks to occur
-        - Program representation in memory
-        - Commonly-used libraries
-          - System
-          - Third-party
-      - Debugging and testing:
-        - Techniques for distributed programs
-        - Challenges and approaches to debugging/testing concurrent code
-        - Tools:
-          - Debuggers
-          - Profilers
-          - Leak detection and analysis
-          - Testing frameworks
-    - Long-term planning.
+  - Long-term planning.
+  - Data science:
+    - Review.
+    - Transfer existing data-science flashcards to YAML spec files in new version-controlled repo.
+    - After review of previous studies, resume current studies.
+  - Study for coding interviews. Setup related drills.
+    - I'll need to review basics of each language, and make flashcards for these.
+      - Basic types
+      - Representations of basic types in memory
+      - Representations of composite in memory
+      - Memory management, e.g., garbage collection approaches
+      - Call stack layout
+      - Ways for memory leaks to occur
+      - Program representation in memory
+      - Commonly-used libraries
+        - System
+        - Third-party
+    - Debugging and testing:
+      - Techniques for distributed programs
+      - Challenges and approaches to debugging/testing concurrent code
+      - Tools:
+        - Debuggers
+        - Profilers
+        - Leak detection and analysis
+        - Testing frameworks
 - Medium priorities:
-    - Resume data-science studies.
-    - Strategy to build Singularity images to a _SingularityImages/_ directory.
-        - _SingularityImages/_ should not be backed up.
-        - Move Singularity files to a _SingularityFIles/_ directory.
-        - _SingularityFIles/_ should be backed up.
-    - Examples of:
-        - Packrat with SCIF.
-        - Virtualenv with SCIF.
-    - Learn more about how Nix/NixOS work. Become more comfortable. Transition to Nix-based containers.
+  - Strategy to build Singularity images to a _SingularityImages/_ directory.
+    - _SingularityImages/_ should not be backed up.
+    - Move Singularity files to a _SingularityFIles/_ directory.
+    - _SingularityFIles/_ should be backed up.
+  - Examples of:
+    - Packrat with SCIF.
+    - Virtualenv with SCIF.
+  - Learn more about how Nix/NixOS work. Become more comfortable. Transition to Nix-based containers.
 - Low priorities:
   - Explore TopCoder: https://www.topcoder.com/
   - Explort NumFOCUS: https://numfocus.org/
 
 
-# Brainstorming:
+## Thoughts:
 
 - **No rote memorization.**
   - The flashcard goal: pose problem whose solutions require that I **think through the steps of algorithms and proofs.**
@@ -59,7 +65,7 @@ My notebook. Publicly-viewable, but not very interesting to anyone other than me
     - Project structure should now more closely resemble a SCIF app.
 
 
-# Notes:
+## Notes:
 
 - Apparently the following are proven intractable:
   - _check the validity of relationships involving $\exists, +, <, \rightarrow$._
@@ -70,7 +76,7 @@ My notebook. Publicly-viewable, but not very interesting to anyone other than me
   - _S. Skiena; _The Algorithm Design Manual_; 2nd ed.; pp 330-1.
 
 
-# Questions:
+## Questions:
 
 - **What is a _union-find_ data structure?**
 - **In what ways can graphs be represented?**
@@ -86,7 +92,7 @@ My notebook. Publicly-viewable, but not very interesting to anyone other than me
 - What is the _KMP string-matching algorithm_?
 
 
-# Wishlist:
+## Wishlist:
 
 - Read _R. Karp; 1972; "Reducibility Among Combinatorial Problems"_.
 - _Kernighan and Ritchie; "The C Programming Language"_
