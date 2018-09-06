@@ -210,3 +210,9 @@ There's some material in TDST that I haven't seen elsewhere yet. For example, de
 I don't want to miss anything, but I also don't want to waste time sorting through material multiple times. Since for some of this material I don't yet know whether it will be covered in greater detail, it may be better to skip TDST for now, and come back to it after I've finished the rest of the courses in this track.
 
 That said, I'm now moving on to the second course, RP (R Programming).
+
+
+Another thought: there's lots of material here that must be rote-memorized. Don't think I can get away from that. Hope to balance with various data-science problems which will require thought.
+
+
+##### 1702: Pausing, possibly stopping for night.
