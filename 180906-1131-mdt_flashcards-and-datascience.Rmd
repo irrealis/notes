@@ -16,6 +16,16 @@ Several days since switching to personal tasks. Today, continuing work on person
   - 1/3 time spent on studies.
   - 1/3 time spent on personal projects.
 
+- Re. flashcard updates:
+  - I currently (clumsily) handle the following:
+    - Field updates: I think this code is in okay shape.
+    - Tag updates: needless deletion and replacement of tags when nothing changed.
+  - Lacking:
+    - Can't update deck name for a card. This can be done using `changeDeck` API call.
+    - Can't update model name for a card.
+      - I can't see any way to update this using the Anki-Connect API.
+      - I could probably add this to the API.
+
 - There are a number of skills I'd like to refresh/maintain. This will have to be an ongoing background project.
   - GPU programming:
     - OpenCL.
