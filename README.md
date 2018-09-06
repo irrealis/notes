@@ -16,10 +16,12 @@ This is my public notebook. It's under version control for my own benefit, altho
 
 - Top priorities:
   - Long-term planning.
+
   - Data science:
     - Review.
     - Transfer existing data-science flashcards to YAML spec files in new version-controlled repo.
     - After review of previous studies, resume current studies.
+
   - Study for coding interviews. Setup related drills.
     - I'll need to review basics of each language, and make flashcards for these.
       - Basic types
@@ -40,15 +42,31 @@ This is my public notebook. It's under version control for my own benefit, altho
         - Profilers
         - Leak detection and analysis
         - Testing frameworks
+
 - Medium priorities:
+  - Flashcard code:
+    - Wishlist, per notes in [180905-1131-mdt](180905-1131-mdt_flashcards-and-datascience.Rmd):
+      - Code review
+      - Testing and refactoring
+    - Low-priority wishlist:
+      - Expand _anki_connect_client.py_:
+        - Add methods corresponding to full Anki-Connect API.
+        - Add commands calling corresponding methods.
+          - Accept args in JSON or YAML files.
+          - Accept args from command line?
+        - Interpreter?
+
   - Strategy to build Singularity images to a _SingularityImages/_ directory.
     - _SingularityImages/_ should not be backed up.
     - Move Singularity files to a _SingularityFIles/_ directory.
     - _SingularityFIles/_ should be backed up.
+
   - Examples of:
     - Packrat with SCIF.
     - Virtualenv with SCIF.
+
   - Learn more about how Nix/NixOS work. Become more comfortable. Transition to Nix-based containers.
+
 - Low priorities:
   - Explore TopCoder: https://www.topcoder.com/
   - Explort NumFOCUS: https://numfocus.org/
