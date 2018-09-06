@@ -161,3 +161,15 @@ nodes
 ##### 1652: Got basic updates for Anki flashcards. Needs cleanup. Break.
 
 ##### 1715: Resume; cleanup Anki-update code.
+
+##### 1856: Done with this round of cleanup.
+
+The code in _update_yaml_notes.py_ still has these flaws:
+- Overly complex
+- Repetitive patterns around `send_as_json` calls
+- `load_and_send_flashcards` is huge and monolithic
+- No formal testing
+
+However, it's late, so I'm stopping for the night. Today's main goal achieved for flashcard system.
+
+##### 1902: Stopping.
