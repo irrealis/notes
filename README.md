@@ -112,13 +112,37 @@ This is my public notebook. It's under version control for my own benefit, altho
 
 ## Wishlist:
 
-- Read _R. Karp; 1972; "Reducibility Among Combinatorial Problems"_.
-- _Kernighan and Ritchie; "The C Programming Language"_
-- _Sestoft; "Java Precisely"_
-- _Bloch; "Effective Java"_
-- _Meyer; "Effective C++"_
-- _Gamma et al.; "Design Patterns: Elements of Reusable Object-Oriented Software"_
-- _Scott; "Programming Languages Pragmatics"_
-- _Tanenbaum; "Modern Operating Systems"_
-- _Zeller and Krinke; "Essential Open Source Toolset"_
-- _Natarajan; "Linux 101 Hacks"_
+- Algorithms and software development:
+  - _R. Karp; 1972; "Reducibility Among Combinatorial Problems"_.
+  - _Kernighan and Ritchie; "The C Programming Language"_
+  - _Sestoft; "Java Precisely"_
+  - _Bloch; "Effective Java"_
+  - _Meyer; "Effective C++"_
+  - _Gamma et al.; "Design Patterns: Elements of Reusable Object-Oriented Software"_
+  - _Scott; "Programming Languages Pragmatics"_
+  - _Tanenbaum; "Modern Operating Systems"_
+  - _Zeller and Krinke; "Essential Open Source Toolset"_
+  - _Natarajan; "Linux 101 Hacks"_
+
+- Data-science:
+  - Textbooks:
+    - Leek: [Elements of Data Analytic Style](https://leanpub.com/datastyle): Statistics of analyzing genomics data
+    - Peng: [R Programming for Data Science](https://leanpub.com/rprogramming?utm_source=DST2&utm_medium=Reading&utm_campaign=DST2): Statistics of analyzing fine particulate matter
+    - Peng: [Exploratory Data Analysis with R](https://leanpub.com/exdata?utm_source=DST2&utm_medium=Reading&utm_campaign=DST2)
+    - Peng: [Report Writing for Data Science in R](https://leanpub.com/reportwriting?utm_source=DST2&utm_medium=Reading&utm_campaign=DST2)
+    - Caffo: [Statistical Inference for Data Science](https://leanpub.com/LittleInferenceBook): Statistics of analyzing brain imaging data
+    - Caffo: [Regression Modeling for Data Science in R](https://leanpub.com/regmods)
+    - Caffo: [Developing Data Products in R](https://leanpub.com/ddp)
+    - Peng: [The Art of Data Science](https://leanpub.com/artofdatascience?utm_source=DST2&utm_medium=Reading&utm_campaign=DST2)
+    - Leek: [How to Be A Modern Scientist](https://leanpub.com/modernscientist)
+
+  - Further reading:
+
+    - The Economist, *The data deluge*, http://www.economist.com/node/15579717
+    - McKinsey Global Institute: *Big data: The next frontier for innovation, competition, and productivity*: http://www.mckinsey.com/insights/business_technology/big_data_the_next_frontier_for_innovation
+    - The New York Times: *For Today's Graduate, Just One Word: Statistics*: http://www.nytimes.com/2009/08/06/technology/06stats.html
+    - The New York Times: *Data Analysts Captivated by R's Power*: http://www.nytimes.com/2009/01/07/technology/business-computing/07program.html
+    - DJ Patil, O'Reilly Radar: *Building data science teams*: http://radar.oreilly.com/2011/09/building-data-science-teams.html
+    - The New York Times: *In Head-Hunting, Big Data May Not Be Such a Big Deal*: http://www.nytimes.com/2013/06/20/business/in-head-hunting-big-data-may-not-be-such-a-big-deal.html
+    - Dataists: http://www.dataists.com/
+    - Alluvium: http://www.alluvium.io/
