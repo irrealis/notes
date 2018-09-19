@@ -1,3 +1,29 @@
 ---
 title: "180919-0845-mdt_algorithms.Rmd"
 ---
+
+Related private notes: _180919-0845-mdt_.
+
+# Status:
+
+I've been working on personal projects for the last week.
+
+Today I'm switching to studies, focusing on algorithms.
+- Last work on studies was in _180906-1052-mdt_flashcards-and-datascience_, where I focused on data science.
+
+
+# Plan:
+
+- _update_yaml_notes.py_:
+  - Revise, adding new notes field _ExtraTags_. The idea is to tag some notes as "Done", or "Done-Python", and so on.
+- Algorithm flashcards:
+  - Tag completed Python flashcards with "Done-Python". This should make it easier to keep track completed work as I transfer from notes to flashcards.
+  - Transfer work from notes to flashcards.
+  - Study completed Python flashcards.
+
+
+# Log:
+
+##### 0845: Start; status/thoughts/plans.
+
+##### 0926: Revised _update_yaml_notes.py_. Now tagging done notes.
