@@ -23,6 +23,7 @@ This is my public notebook. It's under version control for my own benefit, altho
     - After review of previous studies, resume current studies.
 
   - Study for coding interviews. Setup related drills.
+    - I need to do a detailed study of heap sort and heap properties.
     - I'll need to review basics of each language, and make flashcards for these.
       - Basic types
       - Representations of basic types in memory
@@ -111,6 +112,10 @@ This is my public notebook. It's under version control for my own benefit, altho
 
 
 ## Wishlist:
+
+- Study how Thomas Hertog speaks: https://www.youtube.com/watch?v=Ry_pILPr7B8
+
+- Look into API Blueprint: https://apiblueprint.org/
 
 - Algorithms and software development:
   - _R. Karp; 1972; "Reducibility Among Combinatorial Problems"_.
