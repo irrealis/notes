@@ -58,3 +58,11 @@ I may not have much time today, as I have some personal things to attend to.
 ##### 1820: Done checking 116 RoA sans solutions. Committing work.
 
 ##### 1845: Done committing. Break.
+
+##### 1851: Resume. Typeset RoA solutions.
+
+##### 1928: Done typesetting RoA solutions. Checking.
+
+##### 1942: Done checking RoA solutions. Committing.
+
+##### 2000: Done committing RoA solutions. Computing edit rates.
