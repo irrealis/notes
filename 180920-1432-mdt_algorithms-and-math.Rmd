@@ -2,8 +2,6 @@
 title: "180920-1432-mdt_algorithms-and-math.Rmd"
 ---
 
-Related private notes: _180920-1432-mdt_prv_
-
 # Status:
 
 - Two days ago on 180918:
