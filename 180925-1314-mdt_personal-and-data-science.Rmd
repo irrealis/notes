@@ -1,3 +1,29 @@
 ---
 title: "180925-1314-mdt_personal-and-data-science.Rmd"
 ---
+
+# Status:
+
+- Yesterday, _180924-1412-mdt_algebra-drills_data-science_personal_:
+  - Spent most of day finishing algebra review and drills. Also did some calculus review and drills, which I'll be working on later as well.
+
+# Thoughts:
+
+- Some personal projects need attention, and I'm shifting them upward in my priorities. Will try to address them for first half of each day, before shifting to math, data science, or algorithms.
+- I need to spend more time brainstorming when I'm problem-solving.
+
+
+# Plans:
+
+- I have approximately 4-1/2 hours available today.
+- Will spend 2-1/2 hours on personal projects.
+- Will then shift to data science for remainder of day.
+  - Picking up at Coursera's _Statistical Inference_ course, sixth of the _Data Science_ track by Johns Hopkins University.
+  - Just joined session starting 24 September, ending 29 October.
+
+
+# Log:
+
+##### 1314: Start; status/thoughts/plans.
+
+##### 1706: Switching to data science.
