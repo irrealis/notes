@@ -69,8 +69,13 @@ title: "180925-1314-mdt_personal-and-data-science.Rmd"
 #### Reading: Homework Problems
 
 ##### 1812: Done with module one. One to module two.
+##### 1818: Back up; review related module-1 mtl in course text.
 
 ### Module 2: Probability
+
+- Eventual goal: use _probability models_ to connect data to a population.
+- Requisite goal: understand basic probability calculus.
+
 #### Reading: Probability
 #### Video: 02 01 Introduction to probability
 #### Video: 02 02 Probability mass functions
