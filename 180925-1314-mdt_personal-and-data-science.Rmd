@@ -77,7 +77,7 @@ title: "180925-1314-mdt_personal-and-data-science.Rmd"
 
 ##### 1812: Done with module one. One to module two.
 ##### 1818: Back up; review related module-1 mtl in course text.
-##### 1841: Pausing, probably stopping for night.
+##### 1850: Pausing, probably stopping for night.
 
 ### Module 2: Probability
 
