@@ -68,8 +68,16 @@ title: "180925-1314-mdt_personal-and-data-science.Rmd"
 #### Reading: Data Science Specialization Community Site
 #### Reading: Homework Problems
 
+#### Reading from textbook.
+
+- https://leanpub.com/LittleInferenceBook/read#leanpub-auto-about-this-book
+- _Knowledge and parsimony:_ using simplest reasonable models to explain complex phenomena.
+
+
+
 ##### 1812: Done with module one. One to module two.
 ##### 1818: Back up; review related module-1 mtl in course text.
+##### 1841: Pausing, probably stopping for night.
 
 ### Module 2: Probability
 
