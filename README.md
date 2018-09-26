@@ -151,3 +151,25 @@ This is my public notebook. It's under version control for my own benefit, altho
     - The New York Times: *In Head-Hunting, Big Data May Not Be Such a Big Deal*: http://www.nytimes.com/2013/06/20/business/in-head-hunting-big-data-may-not-be-such-a-big-deal.html
     - Dataists: http://www.dataists.com/
     - Alluvium: http://www.alluvium.io/
+
+
+## Long-term data-science notes:
+
+Currently this comes from courses in the Coursera _Data Science_ track by Johns Hopkins University.
+
+- Track website on GitHub: http://datasciencespecialization.github.io/
+
+- Course six: _Statistical Inference_:
+  - Instructor: Brian Caffo
+    - https://sites.google.com/view/bcaffo/
+    - http://www.smart-stats.org/
+  - Course links:
+    - [Caffo; 2016; _Statistical inference for data science](https://leanpub.com/LittleInferenceBook)
+    - [Caffo; 2016; _Little Inference Book_](https://github.com/bcaffo/LittleInferenceBook)
+    - [Course videos on YouTube](https://www.youtube.com/playlist?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+    - [Homework-1 questions](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw1.html)
+    - [Homework-2 questions](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw2.html)
+    - [Homework-3 questions](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw3.html)
+    - [Homework-4 questions](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw4.html)
+  - Interesting links:
+    - [Caffo, Lindquist, Crainiceanu; 2013; _Wanted: Neuro-quants_](https://www.huffingtonpost.com/american-statistical-association/wanted-neuroquants_b_3749363.html)
