@@ -28,3 +28,9 @@ Not feeling well. Domestic partner had scratchy throat, now me. Will rest alot t
 ##### 1330: Personal projects.
 
 ##### 1620: Switch to coding problems.
+
+##### 1754: Solved AFI 02.02 TeraSort.
+
+Included demo using simplified problem model.
+
+##### 1755: Stopping for night.
