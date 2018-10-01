@@ -2,6 +2,8 @@
 title: "181001-1157-mdt_personal-and-math.Rmd"
 ---
 
+Related private notes: _181001-1228-mdt_
+
 # Status:
 
 Still sick, but not badly, and I'd like to get back to work. So I'll focus on personal projects for the first few hours, followed by reviewing math topics.
@@ -18,3 +20,7 @@ Still sick, but not badly, and I'd like to get back to work. So I'll focus on pe
 ##### 1157: Start; status/thoughts/plans.
 
 ##### 1216: Personal projects.
+
+##### 1641: Switching to math.
+
+I'll be loading problems and solutions from _Diagnostic Tests_, pp xxiv-xxviii, _Stewart; 2009; "Calculus: Concepts and Contexts"; Edition 4e_.
