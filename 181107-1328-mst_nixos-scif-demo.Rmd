@@ -1,3 +1,31 @@
 ---
 title: "181107-1328-mst_nixos-scif-demo.Rmd"
 ---
+
+# Thoughts:
+
+Create a NixOS Docker image. Install SCIF. Create hello-world SCIF recipe. Run recipe. Then look into steps to replicate some of my projects. Take note of hiccups and how addressed. Include steps to reproduce final result. Encapsulate in Dockerfile and GitHub repository.
+
+# Plan:
+
+- Create NixOS Docker image.
+  - Start by installing existing NixOS Docker image, then experimenting.
+  - https://hub.docker.com/r/nixos/nix/.
+  - List channels. Add latest stable version.
+- Install SCIF.
+  - Install SCIF from package if available.
+  - If not, try installing specific version via pip install.
+- Create and run hello-world SCIF recipe.
+  - https://sci-f.github.io/tutorial-quick-start
+  - https://sci-f.github.io/tutorial-preview-install#install-scif-in-docker-using-recipe
+- Get running in Docker image.
+  - Take notes, as this will go wrong. When this happens, analyze; brainstorm next steps.
+- Try to encapsulate in Dockerfile.
+  - Take notes, as this will go wrong. When this happens, analyze; brainstorm next steps.
+- As much as possible, simplify steps to reproduce. Take notes.
+- Post on GitHub. Shadow process to verify.
+
+
+##### 1328: Start. Thoughts/plans.
+
+##### 1418: NixOS in Docker.
