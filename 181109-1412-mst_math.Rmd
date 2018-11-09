@@ -19,7 +19,27 @@ Would also like to work more on deterministic software containers via Bazel/Giti
 Above is lower priority than studying.
 
 
+# Plans:
+
+Focus next two weeks creating flashcards for math problems. Spend two hours per day on vocabulary.
+
+Math, focusing on Stewart calculus text:
+- Per-chapter paper notes, in book folder. Keep succinct.
+  - For now only listing skipped chapters and sections, and reasons for skipping.
+  - May later want more detailed notes.
+- Generally, focus on typesetting exercises with answers (odd-numbered problems). As needed, detailed reads of chapter contents and examples, but no more than needed. Goal is to move quickly.
+- Review each chapter. Any I can skip wholesale?
+  - Take note of skipped chapters; may later discover I need to study skipped chapters.
+- Per-chapter:
+  - Review each sections.
+  - Any I can skip wholesale?
+    - If so, assume can also skip related problems.
+    - Take note of skipped sections; may later discover I need to study skipped sections.
+  - For not-skipped sections, load relevant problems into flashcards.
+
 
 # Log:
 
 ##### 1412: Start; status/thoughts/plans.
+
+##### 1519: Loading math flashcards.
