@@ -2,6 +2,24 @@
 title: "181109-1412-mst_math.Rmd"
 ---
 
+# Status:
+
+Finished vocab-studies round focused on 800 GRE words with high frequency. Previously studying 12+ hours/day; reducing to 2/day; changing primary focus to calculus.
+
+# Thinking...
+
+I've written some fun code lately that I'd like to capture and formalize for portfolio use, including:
+- Scraping ets.org essay-topic pools, identifying clusters of highly similar topics; will focus on large clusters as I practice writing essays --- such topics may be more likely to appear in tests (assuming approximately uniform distribution).
+- Scraping vocabulary definitions from OED, Google, Vocab.com.
+- Parsing and analyzing vocabulary etymology.
+- Managing Anki flash cards defined in YAML.
+
+Would also like to work more on deterministic software containers via Bazel/Gitian/Docker/Kubernetes/SCIF.
+
+Above is lower priority than studying.
+
+
+
 # Log:
 
 ##### 1412: Start; status/thoughts/plans.
