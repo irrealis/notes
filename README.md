@@ -109,7 +109,10 @@ This is my public notebook. It's under version control for my own benefit, altho
 - What is the _simplex algorithm for linear programming_?
 - What is the _AKS primality-checking algorithm_?
 - What is the _KMP string-matching algorithm_?
-
+- What are max and typical IO rates for:
+  - Hard drives
+  - SSD drives
+  - NVMe M.2 drives
 
 ## Wishlist:
 
@@ -152,6 +155,11 @@ This is my public notebook. It's under version control for my own benefit, altho
     - Dataists: http://www.dataists.com/
     - Alluvium: http://www.alluvium.io/
 
+- Would like to look at:
+  - Netflix Open-Source tools
+  - MapReduce
+  - BigQuery
+  - Explore Google Cloud offerings
 
 ## Long-term data-science notes:
 

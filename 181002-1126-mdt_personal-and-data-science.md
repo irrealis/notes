@@ -6,6 +6,8 @@ Related private notes: _181002-1126-mdt_
 
 # Status:
 
+# Thoughts:
+
 # Plans:
 
 # Log:
