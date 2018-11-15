@@ -42,3 +42,5 @@ As yesterday, math, focusing on Stewart calculus text:
 ##### 1148: Resuming math flashcards.
 
 ##### 1245: Finished typesetting 01-2 questions; break.
+
+##### 1316: Back; start typesetting 01-2 answers.
