@@ -44,3 +44,5 @@ As yesterday, math, focusing on Stewart calculus text:
 ##### 1245: Finished typesetting 01-2 questions; break.
 
 ##### 1316: Back; start typesetting 01-2 answers.
+
+##### 1502: Finished 01-2. Break for exercise.
