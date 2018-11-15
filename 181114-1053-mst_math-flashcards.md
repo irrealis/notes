@@ -34,3 +34,5 @@ As yesterday, math, focusing on Stewart calculus text:
 ##### 1053: Start; status/thoughts/plans
 
 ##### 1056: Math flashcards.
+
+##### 1134: Just took side trip: commit changes to anki_connect_client.
