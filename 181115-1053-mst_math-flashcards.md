@@ -40,3 +40,5 @@ As yesterday, math, focusing on Stewart calculus text:
 ##### 1135: Rebasing 01-2.yml.
 
 ##### 1148: Resuming math flashcards.
+
+##### 1245: Finished typesetting 01-2 questions; break.
