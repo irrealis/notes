@@ -35,3 +35,5 @@ As on Thursday: math, focusing on Stewart calculus text:
 ##### 1144: Start; status/thoughts/plans.
 
 ##### 1148: Math flashcards, 01-3.
+
+##### 1508: Finished 01-3. Break for exercise.
