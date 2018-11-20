@@ -6,7 +6,7 @@ title: "181120-0936-mst_math-flashcards.md"
 
 - Yesterday, _181119-1144-mst_math-flashcards.md_:
   - Finished _Math/Textbooks/Calculus/Calculus-ConceptsAndContexts/01-3.yml_.
-  - Skipped CCAC-01-4 on use of graphing calculators.
+  - Skipped CCAC 01.4 on use of graphing calculators.
   - Started _Math/Textbooks/Calculus/Calculus-ConceptsAndContexts/01-5.yml_.
 - Today:
   - Finish _Math/Textbooks/Calculus/Calculus-ConceptsAndContexts/01-5.yml_.
@@ -34,6 +34,8 @@ As yesterda: math, focusing on Stewart calculus text:
 
 ##### 0936: Start; status/thoughts/plans.
 
-##### 0939: Math flashcards, 01-5.
+##### 0939: Math flashcards, 01.5.
 
-##### 0946: Finished 01-5. Starting 01-6.
+##### 0946: Finished CCAC 01.5. Starting 01.6.
+
+##### 1342: Finished CCAC 01.6. Break for exercise.
