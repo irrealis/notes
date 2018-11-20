@@ -35,3 +35,5 @@ As yesterda: math, focusing on Stewart calculus text:
 ##### 0936: Start; status/thoughts/plans.
 
 ##### 0939: Math flashcards, 01-5.
+
+##### 0946: Finished 01-5. Starting 01-6.
