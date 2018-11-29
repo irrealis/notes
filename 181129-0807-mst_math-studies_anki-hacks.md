@@ -57,3 +57,7 @@ Issues:
 ##### 1149: Replicated original functionality in new script _update_notes.py_.
 
 New script uses _rtyaml_ to simplify round-trip editing of YAML file. Now adding annotations functionality.
+
+Starting by pulling annotations from Anki.
+
+##### 1344: Added annotation handling to _update_notes.py_.
