@@ -61,3 +61,26 @@ New script uses _rtyaml_ to simplify round-trip editing of YAML file. Now adding
 Starting by pulling annotations from Anki.
 
 ##### 1344: Added annotation handling to _update_notes.py_.
+
+##### 1350: Made annotations queryable. Break.
+
+Here's how to query annotations:
+```
+./update_notes.py pweave-demo.yml -q 'annotations != ""' --question
+./update_notes.py pweave-demo.yml -q 'annotations.str.contains("stuffs")' --question
+```
+
+Here's how to query tags:
+```
+./update_notes.py pweave-demo.yml -q 'tags.str.contains(",Editing,")' --question
+```
+
+Here's how to query IDs:
+```
+./update_notes.py pweave-demo.yml -q 'id == 0' --question
+```
+
+Here's a complex query:
+```
+./update_notes.py pweave-demo.yml -q 'tags.str.contains(",Editing,") or (id == 0) or (annotations != "")' --question
+```
