@@ -36,4 +36,24 @@ title: "181129-0807-mst_math-studies_anki-hacks.md"
 
 ##### 0807: Start; status/thoughts/plans
 
-##### 0812: Flashcard system: cleanup YAML editing.
+##### 0816: Flashcard system: cleanup YAML editing.
+
+Thoughts:
+- First, process all notes.
+  - Extract defaults.
+- Then add filtering.
+
+Issues:
+- Any changes to notes list result in changes to file.
+  - I do want this for updated IDs and annotations.
+  - I don't want this for defaults.
+- The query system disconnects the query results from the rt data.
+  - In old system, I handled by using two representations for each note: the not-rt data, and the rt data.
+    - To keep things in sync, I added a 'node' attribute to the not-rt data, containing the rt-data.
+    - I will still want a similar system.
+    - What's a good way to distinguish between the non-rt and the rt data?
+
+
+##### 1149: Replicated original functionality in new script _update_notes.py_.
+
+New script uses _rtyaml_ to simplify round-trip editing of YAML file. Now adding annotations functionality.
