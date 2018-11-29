@@ -38,3 +38,5 @@ As last Tuesday: math, focusing on Stewart calculus text:
 ##### 1437: Math flashcards, CCAC 01-7.
 
 ##### 1450: Completed CCAC 01-7. Start CCAC 01-Review.
+
+##### 2002: Completed CCAC 01-Review. Stopping for night.
