@@ -15,7 +15,7 @@ title: "181120-0936-mst_math-flashcards.md"
 
 # Plans:
 
-As yesterda: math, focusing on Stewart calculus text:
+As yesterday: math, focusing on Stewart calculus text:
 - Per-chapter paper notes, in book folder. Keep succinct.
   - For now only listing skipped chapters and sections, and reasons for skipping.
   - May later want more detailed notes.
