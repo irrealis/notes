@@ -452,3 +452,6 @@ println(es(100)) # print all primes less or equal than 100
 
 
 ##### 1253: Document work done over weekend: Anki update script.
+
+
+##### 1427: Switch to math. Doesn't look I'll get to web scraper today.
