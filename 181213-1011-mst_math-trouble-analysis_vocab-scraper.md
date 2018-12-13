@@ -49,3 +49,5 @@ Time to take a break from math while I work on other things. Stuff to consider w
 ##### 1011: Start; status/thoughts/plans.
 
 ##### 1036: Break, then begin analysis of math difficulties.
+
+##### 1134: Back; analysis of math difficulties.
