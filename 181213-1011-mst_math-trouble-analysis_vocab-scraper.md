@@ -584,3 +584,6 @@ Next:
   - Study.
 - Problems for next chapter.
 - Work more problems.
+
+
+##### 1358: Print out mistake-reduction procedure.
