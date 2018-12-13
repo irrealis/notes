@@ -529,22 +529,22 @@ Tactics to reduce mistakes:
 
 ###### Procedure to reduce mistakes:
 
-- Read question.
-  - ID keywords.
-- Place problem.
+Read question.
+- ID keywords.
+Place problem.
+- Verify copy.
+Try plugging in values, if not too unwieldy.
+- If dimensions are available, use dimensional analysis.
+Repeat until final results:
+- Perform small number of steps.
+  - Monitor domain constraints.
+- Check partial results.
+  - Plugged values.
+  - Reversal.
+- Copy partial results.
   - Verify copy.
-- Try plugging in values, if not too unwieldy.
-  - If dimensions are available, use dimensional analysis.
-- Repeat until final results:
-  - Perform small number of steps.
-    - Monitor domain constraints.
-  - Check partial results.
-    - Plugged values.
-    - Reversal.
-  - Copy partial results.
-    - Verify copy.
-- Double-check question before moving on.
-  - Do final results answer question?
+Double-check question before moving on.
+- Do final results answer question?
 
 
 ###### To do:
@@ -587,3 +587,8 @@ Next:
 
 
 ##### 1358: Print out mistake-reduction procedure.
+
+Saved to _/Work/Documents/mistake-reduction-procedure_20181213.{odt,pdf}_.
+
+
+##### 1438: Personal stuff.
