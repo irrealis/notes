@@ -13,8 +13,7 @@ title: "181217-1243-mst_vocab-scraper_flashcards.md"
 - As from Friday, for vocab scraper:
   - Start with Scrapy tutorial.
   - Then look at wiring up Selenium/Chrome.
-  - Make a new "scraper" profile in Chrome. Connect to my credentials.
-  - Use this profile in Scrapy/Selenium/Chrome setup.
+  - Use "irrealis" profile in Scrapy/Selenium/Chrome setup.
   - Learn about and enable caching.
   - Manually setup first exploratory scrape: word lists.
     - **Is there a natural word-list identifier on the vocab site I can use as a database primary ID?**
@@ -125,6 +124,7 @@ title: "181217-1243-mst_vocab-scraper_flashcards.md"
 ##### 1246: Vocab scraper; Scrapy tutorial
 
 - Wkpt: _kaben@ares:/mnt/Work/Repos/irrealis/flashcards/spiders_
+  - Uses Pyenv _atom-3.7.0_.
 - Following tutorial at https://doc.scrapy.org/en/latest/intro/tutorial.html
 - I had previously created a project `gre_words` via:
   ```
@@ -163,4 +163,44 @@ title: "181217-1243-mst_vocab-scraper_flashcards.md"
   Works as expected.
 
 
-##### 1339: Vocab scraper; wiring up Selenium/Chrome.
+##### 1339: Wiring up Selenium/Chrome.
+
+- Installed _scrapy-selenium_ into `atom-3.7.0`:
+  ```
+  pip3 install scrapy-selenium
+  ```
+
+- Added _gre_words/gre_words/spiders/selenium_quotes_spider.py:
+  ```{python evaluate = False}
+  import scrapy
+  from scrapy_selenium import SeleniumRequest
+
+  class SeleniumQuotesSpider(scrapy.Spider):
+    name = "selenium_quotes"
+
+    def start_requests(self):
+      urls = [
+        'http://quotes.toscrape.com/page/1/',
+        'http://quotes.toscrape.com/page/2/',
+      ]
+      for url in urls:
+        yield SeleniumRequest(url = url, callback = self.parse)
+
+    def parse(self, response):
+      print(response.meta['driver'].title)
+      page = response.url.split("/")[-2]
+      filename = 'quotes-%s.html' % page
+      with open(filename, 'wb') as f:
+        f.write(response.body)
+      self.log('Saved file %s' % filename)
+  ```
+
+  Ran using command:
+  ```
+  scrapy crawl selenium_quotes
+  ```
+
+  Works as expected, this time using a chrome browser.
+
+
+##### 1347: Use "irrealis" profile in setup.
