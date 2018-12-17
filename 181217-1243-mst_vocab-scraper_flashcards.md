@@ -382,4 +382,48 @@ index 8418165..78f049d 100644
 
 
 ##### 1510: Break; then setup first exploratory scrape.
-  
+
+- How to use _scrapy-selenium_ from within the Scrapy shell:
+  - Launch shell using the _selenium_quotes_ spider:
+    ```
+    scrapy shell --spider=selenium_quotes
+    ```
+
+  - From within shell:
+    ```{python evaluate = False}
+    In [1]: from scrapy_selenium import SeleniumRequest
+    In [2]: request = SeleniumRequest(url = 'http://quotes.toscrape.com/page/1/')
+    In [3]: fetch(request)
+    2018-12-17 15:29:35 [scrapy.core.engine] INFO: Spider opened
+    2018-12-17 15:29:35 [scrapy.extensions.httpcache] DEBUG: Using filesystem cache storage in /mnt/Work/Repos/irrealis/flashcards/spiders/gre_words/.scrapy/httpcache
+    2018-12-17 15:29:35 [scrapy.core.engine] DEBUG: Crawled (404) <GET http://quotes.toscrape.com/robots.txt> (referer: None) ['cached']
+    2018-12-17 15:29:35 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:34057/session/3dcfb637d9a9f9f6f694cb545a555e1a/url {"url": "http://quotes.toscrape.com/page/1/", "sessionId": "3dcfb637d9a9f9f6f694cb545a555e1a"}
+    2018-12-17 15:29:36 [urllib3.connectionpool] DEBUG: http://127.0.0.1:34057 "POST /session/3dcfb637d9a9f9f6f694cb545a555e1a/url HTTP/1.1" 200 72
+    2018-12-17 15:29:36 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+    2018-12-17 15:29:36 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:34057/session/3dcfb637d9a9f9f6f694cb545a555e1a/source {"sessionId": "3dcfb637d9a9f9f6f694cb545a555e1a"}
+    2018-12-17 15:29:36 [urllib3.connectionpool] DEBUG: http://127.0.0.1:34057 "GET /session/3dcfb637d9a9f9f6f694cb545a555e1a/source HTTP/1.1" 200 13361
+    2018-12-17 15:29:36 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+    2018-12-17 15:29:36 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:34057/session/3dcfb637d9a9f9f6f694cb545a555e1a/url {"sessionId": "3dcfb637d9a9f9f6f694cb545a555e1a"}
+    2018-12-17 15:29:36 [urllib3.connectionpool] DEBUG: http://127.0.0.1:34057 "GET /session/3dcfb637d9a9f9f6f694cb545a555e1a/url HTTP/1.1" 200 104
+    2018-12-17 15:29:36 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+    2018-12-17 15:29:36 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://quotes.toscrape.com/page/1/> (referer: None)
+    ```
+
+- I noticed that _robots.txt_ was always being consulted in the shell. To disable this:
+  ```{diff }
+diff --git a/spiders/gre_words/gre_words/settings.py b/spiders/gre_words/gre_words/settings.py
+index 78f049d..377ded3 100644
+--- a/spiders/gre_words/gre_words/settings.py
++++ b/spiders/gre_words/gre_words/settings.py
+@@ -28,7 +28,7 @@ NEWSPIDER_MODULE = 'gre_words.spiders'
+ #USER_AGENT = 'gre_words (+http://www.yourdomain.com)'
+
+ # Obey robots.txt rules
+-ROBOTSTXT_OBEY = True
++ROBOTSTXT_OBEY = False
+
+ # Configure maximum concurrent requests performed by Scrapy (default: 16)
+ #CONCURRENT_REQUESTS = 32
+  ```
+
+##### Natural vocab list identifier to use as db primary ID?
