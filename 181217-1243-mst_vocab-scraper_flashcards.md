@@ -122,4 +122,45 @@ title: "181217-1243-mst_vocab-scraper_flashcards.md"
 
 ##### 1243: Start ; status/thoughts/plans.
 
-##### 1246: Vocab scraper.
+##### 1246: Vocab scraper; Scrapy tutorial
+
+- Wkpt: _kaben@ares:/mnt/Work/Repos/irrealis/flashcards/spiders_
+- Following tutorial at https://doc.scrapy.org/en/latest/intro/tutorial.html
+- I had previously created a project `gre_words` via:
+  ```
+  scrapy startproject gre_words.
+  ```
+  Reusing this project.
+
+- Added _gre_words/gre_words/spiders/quotes_spider.py:
+  ```{python evaluate = False}
+  import scrapy
+
+  class QuotesSpider(scrapy.Spider):
+    name = "quotes"
+
+    def start_requests(self):
+      urls = [
+        'http://quotes.toscrape.com/page/1/',
+        'http://quotes.toscrape.com/page/2/',
+      ]
+      for url in urls:
+        yield scrapy.Request(url = url, callback = self.parse)
+
+    def parse(self, response):
+      page = response.url.split("/")[-2]
+      filename = 'quotes-%s.html' % page
+      with open(filename, 'wb') as f:
+        f.write(response.body)
+      self.log('Saved file %s' % filename)
+  ```
+
+  Ran using command:
+  ```
+  scrapy crawl quotes
+  ```
+
+  Works as expected.
+
+
+##### 1339: Vocab scraper; wiring up Selenium/Chrome.
