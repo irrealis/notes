@@ -23,21 +23,17 @@ title: "181217-1243-mst_vocab-scraper_flashcards.md"
     - `words`:
       - `id`
         - **Is there a natural ID in the vocab html?**
+          - _Not that I can see; so use a regular db primary key for this._
       - `word`
+      - `short_blurb`
+      - `long_blurb`
       - `task_was_executed`
     - `word_lists`:
       - `id`
         - **Is there a natural ID in the vocab html?**
+          - _Yep. Embedded in the URL for the list._
       - `task_was_executed`
     - `word_list join`.
-    - `definitions`:
-      - `id`
-        - **Is there a natural ID in the vocab html?**
-          - _Probably not. In this case it will probably be best to use a autoincrementing numeric ID._
-      - `short_definition`
-      - `short_blurb`
-      - `long_blurb`
-    - `word_definition_join`
   - Setup a scheduling system.
     - Let's try Dramatiq: https://dramatiq.io/
   - Make a setup script:
@@ -427,3 +423,63 @@ index 78f049d..377ded3 100644
   ```
 
 ##### Natural vocab list identifier to use as db primary ID?
+
+- My defined vocabulary lists can be seen at https://www.vocabulary.com/account/lists/.
+  - The links to vocabulary lists have embedded IDs, e.g. my "800 high frequency words GRE" list has ID 185604, seen in link https://www.vocabulary.com/lists/185604.
+  - How to manually scrape:
+    ```{python evaluate = False}
+    In [5]: fetch(SeleniumRequest(url = 'https://www.vocabulary.com/account/lists/'))
+
+    In [32]: response.css('table.list-list td a')[0].css('::text').extract()
+    Out[32]: ['800 high frequency words GRE\n\t', 'November 9, 2018 (816 words)', '\n\t']
+
+    In [33]: response.css('table.list-list td a')[0].css('::attr(href)').extract()
+    Out[33]: ['/lists/185604']
+    ```
+
+
+##### Natural word/definition IDs?
+
+- Continuing above, first follow link to vocab list:
+  ```{python evaluate = False}
+  In [42]: next_page = response.css('table.list-list td a')[0].css('::attr(href)').extract_first()
+
+  In [43]: fetch(SeleniumRequest(url = 'https://www.vocabulary.com/{}'.format(next_page)))
+  ```
+
+- Observations:
+  - There appears to be no natural ID associated with a word.
+    - Or at least it's not on this web page.
+    - Probably the reason is to provide friendly URLs.
+  - The thing that I'm calling `short_definition` is apparently the primary synonym sense for the word.
+    - _So I don't need a `short_definition` entry in the `definitions` table._
+    - _I can also now:
+      - Move `short_blurb` and `long_blurb` fields into the `words` table.
+      - Remove the `definitions` table.
+      - Remove the `word_definition_join` table.
+
+
+- How to scrape word info from vocab list page:
+  - Entry html:
+    ```{python evaluate = False}
+    In [53]: entry = response.css('.wordlist li')[0]
+    ```
+  - Word:
+    ```{python evaluate = False}
+    In [54]: word = entry.css('a.word::text').extract_first()
+    ```
+  - Word frequency:
+    ```{python evaluate = False}
+    In [55]: freq = entry.css('::attr(freq)').extract_first()
+    ```
+  - Relative link to word page:
+    ```{python evaluate = False}
+    In [56]: word_page = entry.css('::attr(href)').extract_first()
+    ```
+  - Displaying word info:
+    ```{python evaluate = False}
+    In [57]: word, freq, word_page
+    Out[57]: ('abdicate', '1648.06', '/dictionary/abdicate')
+    ```
+
+##### 1640: Break; next: examine synonyms on word page.
