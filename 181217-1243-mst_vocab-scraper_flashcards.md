@@ -169,6 +169,39 @@ title: "181217-1243-mst_vocab-scraper_flashcards.md"
   ```
   pip3 install scrapy-selenium
   ```
+- Modified settings:
+  ```{patch }
+diff --git a/spiders/gre_words/gre_words/settings.py b/spiders/gre_words/gre_words/settings.py
+index 638a977..295a984 100644
+--- a/spiders/gre_words/gre_words/settings.py
++++ b/spiders/gre_words/gre_words/settings.py
+@@ -9,6 +9,12 @@
+ #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
+ #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
+
++from shutil import which
++
++SELENIUM_DRIVER_NAME = 'chrome'
++SELENIUM_DRIVER_EXECUTABLE_PATH = which('chromedriver')
++SELENIUM_DRIVER_ARGUMENTS = []
++
+ BOT_NAME = 'gre_words'
+
+ SPIDER_MODULES = ['gre_words.spiders']
+@@ -52,9 +58,10 @@ ROBOTSTXT_OBEY = True
+
+ # Enable or disable downloader middlewares
+ # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
+-#DOWNLOADER_MIDDLEWARES = {
++DOWNLOADER_MIDDLEWARES = {
+ #    'gre_words.middlewares.GreWordsDownloaderMiddleware': 543,
+-#}
++  'scrapy_selenium.SeleniumMiddleware': 800,
++}
+
+ # Enable or disable extensions
+ # See https://doc.scrapy.org/en/latest/topics/extensions.html
+  ```
 
 - Added _gre_words/gre_words/spiders/selenium_quotes_spider.py:
   ```{python evaluate = False}
@@ -204,3 +237,61 @@ title: "181217-1243-mst_vocab-scraper_flashcards.md"
 
 
 ##### 1347: Use "irrealis" profile in setup.
+
+Took some time to figure this out. Can't specify a specific profile path. Can only use 'Default' profile in user data dir.
+- Created user data dir _/mnt/Work/Repos/irrealis/flashcards/spiders/google-chrome-config_.
+- Used code below to launch.
+  ```{python }
+  import time
+
+  from selenium import webdriver
+  import selenium.webdriver.chrome.service as service
+  import selenium.webdriver.chrome.options as options
+
+  opts = options.Options()
+  opts.binary_location = '/opt/google/chrome/google-chrome'
+  opts.add_argument(
+    'user-data-dir=/mnt/Work/Repos/irrealis/flashcards/spiders/google-chrome-config'
+  )
+  opts.to_capabilities()
+
+  svc = service.Service('/home/kaben/.local/bin/chromedriver-2.45.615279')
+  svc.start()
+  driver = webdriver.Remote(svc.service_url, opts.to_capabilities())
+  driver.get('http://www.google.com/xhtml');
+  # time.sleep(5) # Let the user actually see something!
+  # driver.quit()
+  ```
+
+- Manually signed into 'irrealis.chomp@gmail.com'.
+- Manually signed into vocabulary.com.
+- Exited Selenium-controlled browser:
+  ```{python }
+  driver.quit()
+  ```
+
+- Relaunched using above code. Verified:
+  - Still signed in as 'irrealis.chomp@gmail.com'.
+  - Still signed into vocabulary.com.
+
+
+- Modified settings again, to enact user data dir:
+  ```{diff }
+diff --git a/spiders/gre_words/gre_words/settings.py b/spiders/gre_words/gre_words/settings.py
+index 295a984..8418165 100644
+--- a/spiders/gre_words/gre_words/settings.py
++++ b/spiders/gre_words/gre_words/settings.py
+@@ -13,7 +13,10 @@ from shutil import which
+
+ SELENIUM_DRIVER_NAME = 'chrome'
+ SELENIUM_DRIVER_EXECUTABLE_PATH = which('chromedriver')
+-SELENIUM_DRIVER_ARGUMENTS = []
++SELENIUM_DRIVER_ARGUMENTS = [
++  'user-data-dir=/mnt/Work/Repos/irrealis/flashcards/spiders/google-chrome-config'
++]
++
+
+ BOT_NAME = 'gre_words'
+  ```
+
+##### 1347: Learn about and enable caching.
