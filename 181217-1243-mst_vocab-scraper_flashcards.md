@@ -295,3 +295,91 @@ index 295a984..8418165 100644
   ```
 
 ##### 1347: Learn about and enable caching.
+
+- Enabled caching:
+  ```{diff }
+diff --git a/spiders/gre_words/gre_words/settings.py b/spiders/gre_words/gre_words/settings.py
+index 8418165..78f049d 100644
+--- a/spiders/gre_words/gre_words/settings.py
++++ b/spiders/gre_words/gre_words/settings.py
+@@ -93,8 +93,8 @@ DOWNLOADER_MIDDLEWARES = {
+
+ # Enable and configure HTTP caching (disabled by default)
+ # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings
+-#HTTPCACHE_ENABLED = True
+-#HTTPCACHE_EXPIRATION_SECS = 0
+-#HTTPCACHE_DIR = 'httpcache'
+-#HTTPCACHE_IGNORE_HTTP_CODES = []
+-#HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
++HTTPCACHE_ENABLED = True
++HTTPCACHE_EXPIRATION_SECS = 3600
++HTTPCACHE_DIR = 'httpcache'
++HTTPCACHE_IGNORE_HTTP_CODES = []
++HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+  ```
+
+  After running the _selenium_quotes_ crawler, I verified that a cache directory was created: _./.scrapy/httpcache_.
+
+  Moreover, Scrapy stats recorded the caching --- see `httpcach/*` stats below:
+
+  ```
+  2018-12-17 14:58:28 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+  {'downloader/request_bytes': 228,
+   'downloader/request_count': 1,
+   'downloader/request_method_count/GET': 1,
+   'downloader/response_bytes': 25192,
+   'downloader/response_count': 3,
+   'downloader/response_status_count/200': 2,
+   'downloader/response_status_count/404': 1,
+   'finish_reason': 'finished',
+   'finish_time': datetime.datetime(2018, 12, 17, 21, 58, 28, 916200),
+   'httpcache/firsthand': 3,
+   'httpcache/miss': 1,
+   'httpcache/store': 3,
+   'log_count/DEBUG': 38,
+   'log_count/INFO': 7,
+   'memusage/max': 54833152,
+   'memusage/startup': 54833152,
+   'response_received_count': 3,
+   'scheduler/dequeued': 2,
+   'scheduler/dequeued/memory': 2,
+   'scheduler/enqueued': 2,
+   'scheduler/enqueued/memory': 2,
+   'start_time': datetime.datetime(2018, 12, 17, 21, 58, 27, 895225)}
+  ```
+
+  After running a second time, Scrapy believed the cache was used:
+
+  ```
+  2018-12-17 15:00:51 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+  {'downloader/request_bytes': 228,
+   'downloader/request_count': 1,
+   'downloader/request_method_count/GET': 1,
+   'downloader/response_bytes': 25192,
+   'downloader/response_count': 3,
+   'downloader/response_status_count/200': 2,
+   'downloader/response_status_count/404': 1,
+   'finish_reason': 'finished',
+   'finish_time': datetime.datetime(2018, 12, 17, 22, 0, 51, 356537),
+   'httpcache/firsthand': 2,
+   'httpcache/hit': 1,
+   'httpcache/store': 2,
+   'log_count/DEBUG': 38,
+   'log_count/INFO': 7,
+   'memusage/max': 54984704,
+   'memusage/startup': 54968320,
+   'response_received_count': 3,
+   'scheduler/dequeued': 2,
+   'scheduler/dequeued/memory': 2,
+   'scheduler/enqueued': 2,
+   'scheduler/enqueued/memory': 2,
+   'start_time': datetime.datetime(2018, 12, 17, 22, 0, 20, 585463)}
+  ```
+
+  But I'm not convinced that the cache was used as expected. The cache contains three stores, but only one hit, and it looks like two pages are downloaded and stored a second time.
+
+  In any case, if I handle tasks correctly, I shouldn't have much need for the cache. Moving on.
+
+
+##### 1510: Break; then setup first exploratory scrape.
+  
