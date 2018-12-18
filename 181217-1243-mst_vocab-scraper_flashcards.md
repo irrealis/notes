@@ -616,6 +616,7 @@ Table('vocabs', metadata,
   Column('id', Integer, primary_key = True, autoincrement = False),
   Column('description', Text),
 )
+
 Table('words', metadata,
   Column('id', Integer, primary_key = True),
   Column('word', Text),
@@ -623,6 +624,15 @@ Table('words', metadata,
   Column('long_blurb', Text),
   Column('frequency', Numeric)
 )
+
+Table('words', metadata,
+  Column('id', Integer, primary_key = True),
+  Column('word', Text),
+  Column('short_blurb', Text),
+  Column('long_blurb', Text),
+  Column('frequency', Numeric)
+)
+
 Table('vocab_word_association', metadata,
   Column('vocab_id', Integer, ForeignKey('vocabs.id'), primary_key = True),
   Column('word_id', Integer, ForeignKey('words.id'), primary_key = True),
@@ -657,3 +667,5 @@ abdicate.vocabs_collection[0].id
 
 
 ##### 1904: Stopping.
+
+##### 2045: Resuming, probably briefly. Considering sense IDs.
