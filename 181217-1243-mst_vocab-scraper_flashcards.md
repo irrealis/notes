@@ -485,15 +485,175 @@ index 78f049d..377ded3 100644
 ##### 1640: Break; next: examine synonyms on word page.
 ##### 1706: Try setting up ORM.
 
+
+```{python }
+%pushd '/mnt/Work/Repos/irrealis/flashcards/spiders/gre_words'
+%pwd
+```
+
 ```{python }
 from irrealis.orm import ORM
-from sqlalchemy import Table, Column, Integer, Text, MetaData, ForeignKey, create_engine
+from sqlalchemy import Table, Column, Integer, Numeric, Text, MetaData, ForeignKey, create_engine
+from sqlalchemy.orm import relationship
+from sqlalchemy.orm.exc import MultipleResultsFound
+
 
 db_url = 'sqlite:///vocab.sqlite'
+
+metadata = MetaData()
+Table('vocabs', metadata,
+  Column('id', Integer, primary_key = True, autoincrement = False),
+  Column('description', Text),
+)
+Table('words', metadata,
+  Column('id', Integer, primary_key = True),
+  Column('word', Text),
+  Column('short_blurb', Text),
+  Column('long_blurb', Text),
+  Column('frequency', Numeric)
+)
+Table('vocab_word_association', metadata,
+  Column('id', Integer, primary_key = True),
+  Column('vocab_id', Integer, ForeignKey('vocabs.id')),
+  Column('word_id', Integer, ForeignKey('words.id')),
+)
+engine = create_engine(db_url)
+metadata.create_all(engine)
+
 orm_defs = dict(
+  Vocab = dict(
+    __tablename__ = 'vocabs',
+    words = relationship(
+      'Word',
+      secondary = 'vocab_word_association',
+      primaryjoin = 'Word.id == vocab_word_association.c.vocab_id',
+      secondaryjoin = 'Word.id == vocab_word_association.c.word_id',
+      # backref = 'vocabs',
+    ),
+  ),
   Word = dict(
     __tablename__ = 'words',
-    id = Column()
+  ),
+  VocabWordAssociation = dict(
+    __tablename__ = 'vocab_word_association',
   )
 )
+# orm = ORM(orm_defs, engine)
+orm = ORM(orm_defs, engine = db_url)
+
+orm.mapped_classes
+
+# db_url = 'sqlite://'
+orm_defs = dict(
+  Vocab = dict(
+    __tablename__ = 'vocabs',
+    id = Column('id', Integer, primary_key = True, autoincrement = False),
+    description = Column('description', Text),
+    words = relationship(
+      'Word',
+      secondary = 'vocab_word_association',
+      primaryjoin = 'Word.id == vocab_word_association.c.vocab_id',
+      secondaryjoin = 'Word.id == vocab_word_association.c.word_id',
+      # backref = 'vocabs',
+    ),
+  ),
+  Word = dict(
+    __tablename__ = 'words',
+    id = Column('id', Integer, primary_key = True),
+    word = Column('word', Text),
+    short_blurb = Column('short_blurb', Text),
+    long_blurb = Column('long_blurb', Text),
+    frequency = Column('frequency', Numeric)
+  ),
+  VocabWordAssociation = dict(
+    __tablename__ = 'vocab_word_association',
+    id = Column('id', Integer, primary_key = True),
+    vocab_id = Column('vocab_id', Integer, ForeignKey('vocabs.id')),
+    word_id = Column('word_id', Integer, ForeignKey('words.id')),
+  )
+)
+
+orm = ORM(orm_defs, db_url)
 ```
+
+```{python }
+vocab_185604 = orm.create(orm.Vocab, id = 185604)
+orm.session.commit()
+for entry in response.css('.wordlist li'):
+  word_text = entry.css('a.word::text').extract_first()
+  freq = entry.css('::attr(freq)').extract_first()
+  word = orm.create(orm.Word, word = word_text, frequency = freq)
+  vocab_185604.words.append(word)
+orm.session.commit()
+```
+
+
+##### 1902: Yeesh. SQLAlchemy changed again, breaking my ORM system.
+
+To setup automapped vocabularies and words, with many-to-many join, I had to return to basics. The following seems to work correctly.
+
+
+```{python }
+%pushd '/mnt/Work/Repos/irrealis/flashcards/spiders/gre_words'
+```
+
+```{python }
+%cd '/mnt/Work/Repos/irrealis/flashcards/spiders/gre_words'
+%rm vocab.sqlite
+
+from sqlalchemy import Table, Column, Integer, Numeric, Text, MetaData, ForeignKey, create_engine
+
+from sqlalchemy.ext.automap import automap_base
+from sqlalchemy.orm import Session
+
+
+db_url = 'sqlite:///vocab.sqlite'
+metadata = MetaData()
+engine = create_engine(db_url)
+session = Session(engine)
+
+Table('vocabs', metadata,
+  Column('id', Integer, primary_key = True, autoincrement = False),
+  Column('description', Text),
+)
+Table('words', metadata,
+  Column('id', Integer, primary_key = True),
+  Column('word', Text),
+  Column('short_blurb', Text),
+  Column('long_blurb', Text),
+  Column('frequency', Numeric)
+)
+Table('vocab_word_association', metadata,
+  Column('vocab_id', Integer, ForeignKey('vocabs.id'), primary_key = True),
+  Column('word_id', Integer, ForeignKey('words.id'), primary_key = True),
+)
+
+metadata.create_all(engine)
+
+Base = automap_base()
+
+Base.prepare(engine, reflect=True)
+
+Vocab = Base.classes.vocabs
+Word = Base.classes.words
+
+session.add(Vocab(id = 185604, description = '800 high frequency words GRE'))
+session.commit()
+
+session.add(Word(word = 'abdicate'))
+session.commit()
+
+vocab_185604 = session.query(Vocab).first()
+abdicate = session.query(Word).first()
+
+vocab_185604.words_collection.append(abdicate)
+
+session.add_all(vocab_185604.words_collection)
+session.commit()
+
+
+abdicate.vocabs_collection[0].id
+```
+
+
+##### 1904: Stopping.
