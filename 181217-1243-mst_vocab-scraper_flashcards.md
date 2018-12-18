@@ -669,3 +669,50 @@ abdicate.vocabs_collection[0].id
 ##### 1904: Stopping.
 
 ##### 2045: Resuming, probably briefly. Considering sense IDs.
+
+- On a word's page senses have a natural ID embedded in `div.sense` `id`.
+  - However, the IDs of related senses are not included on the page.
+    - Only the synonyms and the text of the related sense are included.
+  - I think this means it makes sense to use the embedded sense ID as the db primary key.
+  - But it also means I'll have to search for related senses by text.
+    - So I'll need to index that column.
+- I've observed the following "types" of senses:
+  - Synonyms
+  - Antonyms
+  - Types
+  - Types of
+  - Examples
+    - _Don't use this type._ Reason: linked Phrases or usages instead of words.
+- Since the data is there, if it isn't too much trouble I might as well scrape it.
+  - This suggests the following additional tables:
+    - `senses`
+      - `id`: the `div.sense` `id` from the word's page
+      - `sense`
+    - `word_sense_join`
+      - `word_id`
+      - `sense_id`
+    - `sense_relation_types`
+      - `id`: standard primary key
+      - `sense_relation_type`
+    - `related_sense_join`
+      - `relation_type_id`: related key from `sense_relation_types`
+- This is starting to look like a complex many-to-many self join. Which may be more complex than I want or need.
+  - Wouldn't be too hard to handle. It would slightly easier if I were making a directed graph... Here I have the following symmetries:
+    - A sense is the antonym of an antonym.
+      - This is an undirected relationship.
+    - A sense is the synonym of a synonym.
+      - This is an undirected relationship.
+    - A sense is the type of a typeof.
+      - This is a directed relationship.
+  - These kinds of relationships could be simplified using some helper functions.
+- Decision: this is more complex than I want right now.
+  - _Don't model sense-sense relationships. Just model word-sense relationships.
+  - Yes, I may want to analyze these relationships in future, but for now instead of trying to model this in the database, I'll just store the HTML file for each word.
+
+- _AHA! instead of including the type in sense-sense relationships, I can include the type in the word-sense relationship._
+  - No, I don't think this works.
+    - There are synonyms directly related to this sense.
+    - And there are synonyms indirectly related, via a directly related sense.
+
+
+##### 2138: Stopping for night.
