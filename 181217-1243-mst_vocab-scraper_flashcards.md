@@ -682,7 +682,7 @@ abdicate.vocabs_collection[0].id
   - Types
   - Types of
   - Examples
-    - _Don't use this type._ Reason: linked Phrases or usages instead of words.
+    - _Don't use this type._ Reason: instead of linked individual words, they provide linked phrases or usage examples.
 - Since the data is there, if it isn't too much trouble I might as well scrape it.
   - This suggests the following additional tables:
     - `senses`
