@@ -483,3 +483,17 @@ index 78f049d..377ded3 100644
     ```
 
 ##### 1640: Break; next: examine synonyms on word page.
+##### 1706: Try setting up ORM.
+
+```{python }
+from irrealis.orm import ORM
+from sqlalchemy import Table, Column, Integer, Text, MetaData, ForeignKey, create_engine
+
+db_url = 'sqlite:///vocab.sqlite'
+orm_defs = dict(
+  Word = dict(
+    __tablename__ = 'words',
+    id = Column()
+  )
+)
+```
