@@ -834,3 +834,5 @@ sense_35617.type_of[0].word_collection
 
 
 ##### 1259: Done with notes on scraper code. Break.
+
+##### 1319: Back. Now thinking about how to use Scrapy.
