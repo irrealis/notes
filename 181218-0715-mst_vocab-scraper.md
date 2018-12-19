@@ -38,6 +38,8 @@ title: "181218-0715-mst_vocab-scraper.md"
 %pushd '/mnt/Work/Repos/irrealis/flashcards/spiders/gre_words'
 ```
 
+If you're reading this, skip to "Fourth pass" below. Only read the first three coding passes if you want to see how these ideas developed.
+
 
 ###### First pass.
 
@@ -528,6 +530,19 @@ abdicate.vocab_collection[0].id
 
 ###### Fourth pass.
 
+This version works as I'd hoped.
+- The table definitions are separate from the rest of the code, which will allow me to use Alembic for database schema migrations.
+- The ORM definitions are separate from the table definitions and the rest of the code, which allows me to move them into a separate Python module.
+- Sense relationships are managed in the Sense class.
+  - Three kinds of sense relationships are managed and can be queried:
+    - Synonyms
+    - Antonyms
+    - Types/type-of. In this relationship, one sense is a specialized type of another more general sense.
+- Unfortunately the Sense and SenseRelation classes are tightly coupled by mutual dependence. However, the latter class is very simple, so I hope the coupling won't cause problems.
+
+I was able to use this code verbatim in Alembic and Scrapy, and later added  functionality.
+
+
 ```{python }
 %cd '/mnt/Work/Repos/irrealis/flashcards/spiders/gre_words'
 %rm vocab.sqlite
@@ -541,11 +556,13 @@ import enum
 
 metadata = MetaData()
 
+# Vocabulary lists.
 Table('vocabs', metadata,
   Column('id', Integer, primary_key = True, autoincrement = False),
   Column('description', Text),
 )
 
+# Words and definitions.
 Table('words', metadata,
   Column('id', Integer, primary_key = True),
   Column('word', Text),
@@ -554,21 +571,25 @@ Table('words', metadata,
   Column('frequency', Float)
 )
 
+# Vocabulary-Word join table, many-to-many.
 Table('vocab_words', metadata,
   Column('vocab_id', Integer, ForeignKey('vocabs.id'), primary_key = True),
   Column('word_id', Integer, ForeignKey('words.id'), primary_key = True),
 )
 
+# Word-definition/-synonym senses.
 Table('senses', metadata,
   Column('id', Integer, primary_key = True),
   Column('sense', Text),
 )
 
+# Sense-Word join table, many-to-many.
 Table('sense_words', metadata,
   Column('sense_id', Integer, ForeignKey('senses.id'), primary_key = True),
   Column('word_id', Integer, ForeignKey('words.id'), primary_key = True),
 )
 
+# Sense-Sense association table, many-to-many.
 class SenseRelationKind(enum.Enum):
   synonym = 1
   antonym = 2
@@ -582,7 +603,7 @@ Table('sense_relations', metadata,
 
 Base = automap_base()
 
-
+# I use this class mainly to simplify pretty-printing database entries.
 class Mixin(object):
   def __repr__(self):
     attr_dict = self.__dict__.copy()
@@ -592,8 +613,10 @@ class Mixin(object):
   def pprint(self, **kw):
     return "<{name}: {kw}>".format(name=self.__class__.__name__, kw=kw)
 
-
 class Vocab(Mixin, Base):
+  '''
+  Vocabulary-list object.
+  '''
   __tablename__ = 'vocabs'
 
   def __repr__(self):
@@ -603,6 +626,9 @@ class Vocab(Mixin, Base):
     )
 
 class Word(Mixin, Base):
+  '''
+  Word/definition object.
+  '''
   __tablename__ = 'words'
 
   def __repr__(self):
@@ -612,7 +638,36 @@ class Word(Mixin, Base):
     )
 
 
+# Helper functions to simplify using SQLALchemy to define sense-sense
+# relationship types. This gets tricky, because...
+#
+# I model these relationships as a graph. Some parts of the graph need to be
+# treated as undirected, and others parts need to be treated as directed.
+#
+# Because the "synonym" relation is symmetric (if A is a synonym of B, then B is
+# a synonym of A), the graph representation of the relation is undirected.
+#
+# Similarly for the "antonym" relation.
+#
+# The graph representation of the "type-of" relation must be directed, because
+# the relationship is not symmetric: if A is a type of B, then words having
+# sense A also have sense B, but there may be words of sense B that do not have
+# sense A. As a specific example, one sense of 'abdicate' is to give up power,
+# which is a type of 'quit'; but one can 'quit' a position that has no power.
+#
+# Directed graphs are easier to model in SQL than undirected graphs, and both
+# are easier to model than a graph with both directed subgraphs and undirected
+# subgraphs. So I use some helper functions and methods to simplify things.
+
 def sense_relationship(foreign_key_col, relation_kind):
+  '''
+  foreign_key_col: either 'l_sense_id' or 'r_sense_id'
+  relation_kind: one of 'synonym', 'antonym', or 'type_of'
+
+  This defines a SQLAlchemy join query that finds a sense's right or left
+  related senses, where the relation is of kind 'synonym', 'antonym', or
+  'type_of'.
+  '''
   return relationship(
     'SenseRelation',
     foreign_keys = '[SenseRelation.{foreign_key_col}]'.format(
@@ -625,24 +680,60 @@ def sense_relationship(foreign_key_col, relation_kind):
   )
 
 def right_sense_relationship(relation_kind):
+  '''
+  relation_kind: one of 'synonym', 'antonym', or 'type_of'
+
+  This defines a SQLAlchemy join query that finds a sense's right related
+  senses, where the relation is of kind 'synonym', 'antonym', or 'type_of'.
+
+  Note that 'l_sense_id' is used to find right-related senses. I'm not sure how
+  that happened, but whatever, I'll look at fixing it sometime in the future.
+  '''
   return sense_relationship(
     foreign_key_col = 'l_sense_id',
     relation_kind = relation_kind,
   )
 
 def left_sense_relationship(relation_kind):
+  '''
+  relation_kind: one of 'synonym', 'antonym', or 'type_of'
+
+  This defines a SQLAlchemy join query that finds a sense's left related senses,
+  where the relation is of kind 'synonym', 'antonym', or 'type_of'.
+
+  Note that 'r_sense_id' is used to find left-related senses. I'm not sure how
+  that happened, but whatever, I'll look at fixing it sometime in the future.
+  '''
   return sense_relationship(
     foreign_key_col = 'r_sense_id',
     relation_kind = relation_kind,
   )
 
 def lr(l, r):
+  '''
+  l: a list of left-related sense associations.
+  r: a list of right-related sense associations.
+
+  This helper function does four things:
+  - It extracts the left sense from each left association.
+  - It extracts the right sense from each right association.
+  - It combines the resulting left and right senses into one list.
+  - It returns the combined list of senses.
+  '''
   return [x.left for x in l] + [x.right for x in r]
 
 
 class Sense(Mixin, Base):
+  '''
+  Word/definition sense object.
+
+  A word's typically has lots of different definitions, each defining a 'sense'
+  of a word. Synonyms, antonyms, specializations, and generalizations are
+  related via these definition senses.
+  '''
   __tablename__ = 'senses'
 
+  # SQLAlchemy join queries used to find left/right synonyms/antonyms/type/type-of related senses.
   left_synonyms = left_sense_relationship(relation_kind = 'synonym')
   right_synonyms = right_sense_relationship(relation_kind = 'synonym')
   left_antonyms = left_sense_relationship(relation_kind = 'antonym')
@@ -652,15 +743,29 @@ class Sense(Mixin, Base):
 
   @property
   def synonyms(self):
+    '''
+    Returns synonyms senses.
+    '''
     return lr(self.left_synonyms, self.right_synonyms)
   @property
   def antonyms(self):
+    '''
+    Returns synonyms senses.
+    '''
     return lr(self.left_antonyms, self.right_antonyms)
   @property
   def types(self):
+    '''
+    Returns senses that are types of this sense.
+    '''
     return [sr.left for sr in self.left_types_of]
   @property
   def type_of(self):
+    '''
+    Returns the sense of which this sense is a type.
+
+    Ideally there's at most one of these, but I don't try to enforce this.
+    '''
     return [sr.right for sr in self.right_types_of]
 
   def __repr__(self):
@@ -671,6 +776,9 @@ class Sense(Mixin, Base):
 
 
   def add_synonym(self, related_sense):
+    '''
+    Helper method to add related sense to the list of this sense's synonyms.
+    '''
     if related_sense not in self.synonyms:
       return SenseRelation(
         left = self,
@@ -679,6 +787,9 @@ class Sense(Mixin, Base):
       )
 
   def add_antonym(self, related_sense):
+    '''
+    Helper method to add related sense to the list of this sense's antonyms.
+    '''
     if related_sense not in self.antonym:
       return SenseRelation(
         left = self,
@@ -687,6 +798,9 @@ class Sense(Mixin, Base):
       )
 
   def add_type_of(self, related_sense):
+    '''
+    Helper method to assert that this sense is a type of the related sense.
+    '''
     if related_sense not in self.type_of:
       return SenseRelation(
         left = self,
@@ -695,6 +809,9 @@ class Sense(Mixin, Base):
       )
 
   def add_type(self, related_sense):
+    '''
+    Helper method to add related sense as a type of this sense.
+    '''
     if related_sense not in self.types:
       return SenseRelation(
         right = related_sense,
@@ -704,6 +821,11 @@ class Sense(Mixin, Base):
 
 
 class SenseRelation(Mixin, Base):
+  '''
+  Object encapsulating the kind of a sense-sense relationship.
+
+  The relationship kind is one of 'synonym', 'antonym', or 'type-of'.
+  '''
   __tablename__ = 'sense_relations'
   left = relationship(Sense, foreign_keys = "SenseRelation.l_sense_id", backref = 'right')
   right = relationship(Sense, foreign_keys = "SenseRelation.r_sense_id", backref = 'left')
@@ -715,15 +837,17 @@ class SenseRelation(Mixin, Base):
     )
 
 
-
+# Here I attach to the database, create the tables, wire up the ORM.
 db_url = 'sqlite:///vocab.sqlite'
 engine = create_engine(db_url, echo = True)
 session = Session(engine)
 metadata.create_all(engine)
 Base.prepare(engine, reflect=True)
 
+# A mock vocabulary list. Needs to be populated with words.
 vocab_185604 = Vocab(id = 185604, description = '800 high frequency words GRE',)
 
+# A word that I'm going to put into the above vocabulary list.
 abdicate = Word(
   word = 'abdicate',
   short_blurb = '''Sometimes someone in power might decide to give up that power and step down from his or her position. When they do that, they abdicate their authority, giving up all duties and perks of the job.''',
@@ -734,6 +858,7 @@ vocab_185604.word_collection.append(abdicate)
 
 session.add(vocab_185604)
 
+# A definition of a sense of 'abdicate'. This is also a sense of the synonym 'renounce'.
 sense = Sense(
   sense = 'give up, such as power, as of monarchs and emperors, or duties and obligations',
 )
@@ -742,9 +867,11 @@ sense.word_collection.append(abdicate)
 renounce = Word(word = 'renounce')
 sense.word_collection.append(renounce)
 
+# A related and more general sense, of which 'abdicate' is a specific type.
 related_sense = Sense(
   sense = 'leave (a job, post, or position) voluntarily'
 )
+# The related sense is also a sense of synonyms 'give up', 'resign', and 'vacate'.
 related_sense.word_collection.append(Word(word = 'give_up'))
 related_sense.word_collection.append(renounce)
 related_sense.word_collection.append(Word(word = 'resign'))
@@ -753,12 +880,18 @@ related_sense.word_collection.append(Word(word = 'vacate'))
 session.add_all((sense, related_sense,))
 session.commit()
 
+# Here I assert that 'give up, such as power, as of monarchs and emperors, or duties and obligations' is a type of 'leave (a job, post, or position) voluntarily'.
 sense_relation = sense.add_type_of(related_sense)
 session.commit()
 
+# 'sense' is a type of 'related_sense', so:
+# - 'sense' should have no types of its own defined.
 sense.types
+# - 'related_sense' should not be defined as the type of anything else.
 related_sense.type_of
+# - 'sense' should be a type of 'related_sense'.
 sense.type_of
+# - 'related_sense' should have 'sense' as one of its types.
 related_sense.types
 ```
 
@@ -917,3 +1050,8 @@ related_sense.types
 
 
 ##### 1647: Got scrape of 800- and 5000-word lists. Break.
+
+Next:
+- Cleanup/annotate notes.
+- Cleanup/annotate code.
+- Setup scheduling system.
