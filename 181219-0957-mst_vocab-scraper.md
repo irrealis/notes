@@ -58,6 +58,16 @@ Yesterday, _181218-0715-mst_vocab-scraper.md_:
 
 - **Convert manual tests into automated.**
 
+
+# Notes:
+
+- Interesting links:
+  - _Web Scraping in Python using Scrapy (with multiple examples)_:
+    - Mohd Sanad Zaki Rizvi
+    - July 25, 2017
+    - https://www.analyticsvidhya.com/blog/2017/07/web-scraping-in-python-using-scrapy/
+
+
 # Log:
 
 ##### 0957: Status/thoughts/plans.
@@ -876,3 +886,7 @@ Conclusion: **Ditch Scrapy for now.**
 
 
 ##### 1413: Thinking about how to use Dramatiq.
+
+Skipping Dramatiq for now.
+
+##### 1456: Setting up skeletal scraper.
