@@ -836,3 +836,43 @@ sense_35617.type_of[0].word_collection
 ##### 1259: Done with notes on scraper code. Break.
 
 ##### 1319: Back. Now thinking about how to use Scrapy.
+
+- Found a Scrapy tutorial using SQLAlchemy:
+  - https://blog.michaelyin.info/scrapy-tutorial-9-how-use-scrapy-item/
+- However, it seems Scrapy isn't designed with relational data in mind. I think it would be possible, at the expense of lots of repetition in the form of relational data in a single table.
+  - For example, in the following CSV snippet, the author 'Sam Gamgee' is present in every data line:
+    ```
+    author, quote
+    Sam Gamgee, Fubar
+    Sam Gamgee, Foo bar
+    Sam Gamgee, Foo baz
+    Sam Gamgee, Merglop
+    ```
+    In a relational setup, we'd have two tables:
+    ```
+    author, author_id
+    Sam Gamgee, 1
+    ```
+    ```
+    author_id, quote
+    1, Fubar
+    1, Foo bar
+    1, Foo baz
+    1, Merglop
+    ```
+- Relevant quote from https://github.com/scrapy-plugins/scrapy-djangoitem:
+  - A relational ORM "may not scale well if you scrape a lot of items (ie. millions) with Scrapy. This is because a relational backend is often not a good choice for a write intensive applications (such as a web crawler), specially if the database is highly normalized and with many indices."
+- I would guess that the issue here is a tradeoff between increased speed at the expense of increased size, and decreased size at the expense of decreased speed.
+- So it's likely that Scrapy was deliberately designed without relational data in mind, for increased speed during scraping.
+- However, in my application, I'm working with closely-related data on each page, which reduces the burden of relational lookups.
+  - E.g., on a given word's definition page, I repeatedly insert that word into word collections for many objects, over 20 of them in the example code in this notebook entry.
+- I don't know enough to say that my application and method would take a major hit on speed.
+  - _But my application, currently, is designed to be slow._ This is because I'm making the crawler pretend to be a student spending, on average, 50 seconds reading each page.
+    - So I could either use my direct relational method in a custom scraper, or setup a Scrapy pipeline connected.
+    - My direct relational method in a custom scraper would be faster.
+    - It would in future be worthwhile to become more familiar with Scrapy. _But I don't need to do this now._
+
+Conclusion: **Ditch Scrapy for now.**
+
+
+##### 1413: Thinking about how to use Dramatiq.
