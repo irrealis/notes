@@ -890,3 +890,5 @@ Conclusion: **Ditch Scrapy for now.**
 Skipping Dramatiq for now.
 
 ##### 1456: Setting up skeletal scraper.
+
+##### 1755: Got scrape of words in all vocab lists. Break.
