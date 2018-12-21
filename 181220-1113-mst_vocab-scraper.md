@@ -42,3 +42,68 @@ I could instead use whatever distribution I want to produce sleep periods inside
 ##### 1113: Status/thoughts/plans.
 
 ##### 1131: Starting remainder of scraper code.
+
+- I've noticed the following pattern in the code my simulator uses to decide how long to sleep:
+  ```{python evaluate = False}
+  wake += dt.timedelta(seconds = sleep_period)
+  now = dt.datetime.now()
+  sleep_dt = wake - now
+  sleep_seconds = sleep_dt.seconds + sleep_dt.microseconds / 1e6
+  # It's possible the wake time is in the past, which we would have to fix.
+  print(" Sleep: {} sec".format(sleep_seconds))
+  print(" Next wake: {}".format(wake.strftime('%H:%M:%S.%f')))
+  if sleep_dt < dt.timedelta(0):
+    wake = now
+    sleep_dt = dt.timedelta(0)
+    print(" Wake is in past; adusted next wake: {}".format(wake.strftime('%H:%M:%S.%f')))
+  sleep_seconds = sleep_dt.seconds + sleep_dt.microseconds / 1e6
+  ```
+
+  Here's a rough encapsulation to dry things up:
+  ```{python evaluate = False}
+  def get_wakesleep(wake, intertask_period):
+    next_wake = wake + dt.timedelta(seconds = sleep_period)
+    now = dt.datetime.now()
+    sleep_dt = wake - now
+    sleep_seconds = sleep_dt.seconds + sleep_dt.microseconds / 1e6
+    # It's possible the wake time is in the past, which we would have to fix.
+    print(" Sleep: {} sec".format(sleep_seconds))
+    print(" Next wake: {}".format(wake.strftime('%H:%M:%S.%f')))
+    if sleep_dt < dt.timedelta(0):
+      wake = now
+      sleep_dt = dt.timedelta(0)
+      sleep_seconds = sleep_dt.seconds + sleep_dt.microseconds / 1e6
+      print(" Wake is in past; adusted next wake: {}".format(wake.strftime('%H:%M:%S.%f')))
+    return next_wake, sleep_seconds
+  ```
+
+
+- Parsing the word-definition page:
+  ```{python evaluate = False}
+  sel = sp.Selector(text = html)
+  word = sel.css('.dynamictext::text').extract_first()
+  short_blurb = sel.css('p.short').extract_first()
+  long_blurb = sel.css('p.long').extract_first()
+
+  for sense_div in sel.css('div.sense'):
+    sense_def = sense_div.css('h3.definition::text').extract()[-1].strip()
+    for instance in sense_div.css('dl.instances'):
+      kind = instance.css('dt::text').extract_first().lower()
+      # Need to handle each kind of sense instance differently.
+      if kind.startswith('synonyms'):
+        for related_sense_dd in instance.css('dd'):
+          related_words = related_sense_dd.css('a.word::text').extract()
+          if not related_words:
+            # This section has no words, is probably used for JavaScript.
+            continue
+          related_sense_def = related_sense_dd.css('div.definition::text').extract_first()
+          if not related_sense_def:
+            # If there's no text here, it means "use the sense, not the related sense."
+            related_sense_def = '(no related sense)'
+      elif kind.startswith('antonyms'):
+      elif kind.startswith('types'):
+      elif kind.startswith('type of'):
+  ```
+
+
+##### 2107: Automated scraper is up and running. Stopping for night.
